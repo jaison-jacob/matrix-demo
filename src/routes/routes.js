@@ -1,6 +1,7 @@
 import OnboardForm from "../components/pages/OnboardForm";
 import OnboardList from "../components/pages/OnboardList";
 import ChargeFile from "../components/pages/ChargeFile";
+import Login from "../components/pages/LogIn";
 import { matrixPath } from "./routePath";
 import { lazy } from "react";
 
@@ -20,6 +21,11 @@ export const matrixRoutes = [
   {
     path: matrixPath.CHARGEFILE,
     Component: ChargeFile,
+    exact: true,
+  },
+  {
+    path: matrixPath.LOGIN,
+    Component: Login,
     exact: true,
   },
 ];

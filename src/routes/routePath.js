@@ -5,4 +5,6 @@ export const matrixPath = {
 
   //show data
   CHARGEFILE: "/chargeFile",
+  //login
+  LOGIN: "/login",
 };

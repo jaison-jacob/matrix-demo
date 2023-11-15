@@ -4,10 +4,6 @@ import { useState } from "react";
 import CustomTable from "../shared/CustomTable";
 import CustomLoader from "../shared/CustomLoader";
 import { SubmitButton } from "../../styles/CustomButton";
-// import jd from "../../assets/form-cms1500"
-
-// Import the styles
-import "@react-pdf-viewer/core/lib/styles/index.css";
 
 const ChargeFile = () => {
   const [tableData, setTableData] = useState({
@@ -34,6 +30,7 @@ const ChargeFile = () => {
               field: item.replace(/\s/g, ""),
               headerName: item,
               width: 170,
+              editable: true,
             };
           });
 

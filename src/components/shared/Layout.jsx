@@ -9,7 +9,7 @@ import CustomLoader from "../shared/CustomLoader";
 // import vhitechLogo from "../../asset/pexels-the-lazy-artist-gallery-1342609.jpg";
 
 const MainLayout = styled("div")(() => ({
-  width: "calc(100% - 2px)",
+  // width: "calc(100% - 2px)",
   height: "100vh",
 }));
 

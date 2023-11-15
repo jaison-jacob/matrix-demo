@@ -48,17 +48,17 @@ function CustomRadio({
   const themeColor = useTheme();
 
   return (
-    <FormControl sx={{ marginTop: 3 }}>
+    <FormControl>
       <RadioBox
         sx={{
           display: "flex",
-          flexDirection: "column",
+          flexDirection: "row",
           alignItems: "flex-start",
         }}
       >
         <div
           style={{
-            marginRight: "20px",
+            // marginRight: "20px",
             fontFamily: "Poppins",
             color: "grey",
             fontSize: "16px",

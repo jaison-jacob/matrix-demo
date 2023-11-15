@@ -25,6 +25,17 @@ export const StyledTextFeildContainer = styled(TextField)(
     ".MuiInputBase-root:after": {
       borderBottom: "2px solid #757575 !important",
     },
+    ".css-dpjnhs-MuiInputBase-root-MuiOutlinedInput-root": {
+      padding: "14px 14px",
+      fontSize: "14px",
+      color: "#757575",
+    },
+    ".css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root": {
+      fontSize: "14px",
+    },
+    ".MuiOutlinedInput-notchedOutline": {
+      border: "1px solid #757575 !important",
+    },
   })
 );
 
