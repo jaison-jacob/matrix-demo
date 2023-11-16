@@ -1,9 +1,9 @@
-import { Box, Button } from "@mui/material";
-import { read, utils, writeFileXLSX } from "xlsx";
+import { Box } from "@mui/material";
+import { read, utils } from "xlsx";
 import { useState } from "react";
-import CustomTable from "../shared/CustomTable";
-import CustomLoader from "../shared/CustomLoader";
-import { SubmitButton } from "../../styles/CustomButton";
+import CustomTable from "../components/shared/CustomTable";
+import CustomLoader from "../components/shared/CustomLoader";
+import { SubmitButton } from "../styles/CustomButton";
 
 const ChargeFile = () => {
   const [tableData, setTableData] = useState({
@@ -25,7 +25,7 @@ const ChargeFile = () => {
           //   let headerData = ["Id", ...jsonData[0]];
           let headerData = ["id", ...jsonData[0]];
 
-          const headCells = headerData.map((item, index) => {
+          const headCells = headerData.map((item) => {
             return {
               field: item.replace(/\s/g, ""),
               headerName: item,

@@ -7,4 +7,11 @@ export const matrixPath = {
   CHARGEFILE: "/chargeFile",
   //login
   LOGIN: "/login",
+  HOME: "/",
+  VISIT: "/visit",
+  VISITPATIENT: "/visit/patient-info",
+  DIAGNOSIS: "/diagnosis",
+  FORM: "/837p-form",
+  CODING: "/coding-validation",
+  CLAIM: "/claim-denial",
 };

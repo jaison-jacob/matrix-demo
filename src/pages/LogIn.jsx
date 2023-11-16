@@ -1,10 +1,10 @@
 import { Box } from "@mui/system";
 import styled from "styled-components";
-import CustomTextFeild from "../shared/TextFeildComp";
+import CustomTextFeild from "../components/shared/TextFeildComp";
 import { Grid } from "@mui/material";
-import { CustomPasswordField } from "../shared/CustomPasswordField";
+import { CustomPasswordField } from "../components/shared/CustomPasswordField";
 
-export const LoginHeader = styled("div")(({ theme }) => ({
+export const LoginHeader = styled("div")(() => ({
   color: "#757575 !important",
   fontFamily: "Poppins",
   borderBottom: "1px solid grey",

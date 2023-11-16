@@ -1,20 +1,19 @@
-import { Box, Button, Grid, Typography } from "@mui/material";
-import TextFeildComp from "../shared/TextFeildComp";
-import CustomSelectFeild from "../shared/CustomSelectFeild";
-import Container from "@mui/material/Container";
-import Paper from "@mui/material/Paper";
-import EmailIcon from "@mui/icons-material/Email";
-import Stack from "@mui/material/Stack";
-import PersonOutlineIcon from "@mui/icons-material/Person";
+import { Box, Button, Grid, Tooltip, Typography } from "@mui/material";
+import TextFeildComp from "../components/shared/TextFeildComp";
 import styled from "styled-components";
-import CustomTextArea from "../shared/CustomTextArea";
-import CustomCheckBox from "../shared/CustomCheckBox";
-import CustomRadio from "../shared/CustomRadio";
-import { CustomDatePicker } from "../shared/CustomDatePicker";
-import { SubmitButton } from "../../styles/CustomButton";
+import CustomCheckBox from "../components/shared/CustomCheckBox";
+import CustomRadio from "../components/shared/CustomRadio";
+import { CustomDatePicker } from "../components/shared/CustomDatePicker";
+import Breadcrumb from "../components/breadcrumb/breadcrumb";
+import {
+  FlexContainer,
+  SizedBox,
+} from "../components/styled-components/Global.styled";
+import { useState } from "react";
+import Preview from "../components/Preview/Preview";
 // import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
 
-export const DateBirth = styled("div")(({ theme }) => ({
+export const DateBirth = styled("div")(() => ({
   color: "#757575 !important",
   fontFamily: "Poppins",
   borderBottom: "1px solid grey",
@@ -24,7 +23,7 @@ export const DateBirth = styled("div")(({ theme }) => ({
   //   textTransform: "lowercase !important",
 }));
 
-export const Label = styled("div")(({ theme }) => ({
+export const Label = styled("div")(() => ({
   color: "#757575 !important",
   fontFamily: "Poppins",
   fontSize: "14px",
@@ -48,7 +47,7 @@ export const SmallEditableComp = styled("div")(({ theme }) => {
   };
 });
 
-export const TableStyle = styled("table")(({ theme }) => ({
+export const TableStyle = styled("table")(() => ({
   borderCollapse: "collapse",
   width: "100%",
   fontFamily: "Poppins",
@@ -67,13 +66,10 @@ export const TableStyle = styled("table")(({ theme }) => ({
     textAlign: "left",
     padding: "8px",
   },
-  th: {
-    border: "1px solid #757575",
-    // backgroundColor: "#f2f2f2",
-  },
 }));
 
-function OnboardForm() {
+function CodingForm() {
+  const [showPreview, setShowPreview] = useState(false);
   // const docs = [
   //   { uri: cms1500Form }, // Local File
   // ];
@@ -82,10 +78,11 @@ function OnboardForm() {
       sx={{
         // backgroundColor: "#EEEEEE",
         // height: "100vh",
-        padding: 4,
+        padding: 1,
       }}
     >
-      <Typography
+      <Breadcrumb title="Coding Validation" />
+      {/* <Typography
         className="customClass"
         sx={{
           fontWeight: 600,
@@ -98,7 +95,7 @@ function OnboardForm() {
         // gutterBottom
       >
         Health Insurance Claim Form
-      </Typography>
+      </Typography> */}
       <Typography
         className="customClass"
         sx={{
@@ -118,6 +115,7 @@ function OnboardForm() {
             <Grid item xs={12 / 7}>
               <Label>Medicare</Label>
               <CustomCheckBox
+                checked="true"
                 inputProps={{ "aria-label": "controlled" }}
                 // checked={
                 //   values?.roleAccess?.find(
@@ -369,10 +367,11 @@ function OnboardForm() {
             </Grid>
           </Grid>
           <Grid item xs={4}>
-            <Label style={{ marginBottom: "10px" }}>Insured's ID number</Label>
+            <Label style={{ marginBottom: "10px" }}>Insureds ID number</Label>
             <TextFeildComp
               type="text"
               label="Id no"
+              value="A456789"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
             />
@@ -380,12 +379,13 @@ function OnboardForm() {
           <Grid item xs={8}></Grid>
           <Grid item container xs={12}>
             <Grid item xs={12}>
-              <Label style={{ marginBottom: "10px" }}>Patient's Name</Label>
+              <Label style={{ marginBottom: "10px" }}>Patients Name</Label>
             </Grid>
             <Grid item xs={4} paddingY={1} paddingRight={1}>
               <TextFeildComp
                 type="text"
                 label="Last Name"
+                value="Davis"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
               />
@@ -394,6 +394,7 @@ function OnboardForm() {
               <TextFeildComp
                 type="text"
                 label="First Name"
+                value="Christine"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
               />
@@ -419,8 +420,9 @@ function OnboardForm() {
                 // required
                 label={"Date of birth"}
                 name={"scheduleDate"}
+                value={new Date("10/11/1993")}
                 // isViewMode={expiredTime() || isViewMode}
-                minDate={new Date()}
+                // minDate={new Date()}
                 fullWidth
                 // value={values.scheduleDate}
                 // touched={touched}
@@ -456,7 +458,7 @@ function OnboardForm() {
           </Grid>
           <Grid item container xs={12}>
             <Grid item xs={12}>
-              <Label style={{ marginBottom: "10px" }}>Insured's Name</Label>
+              <Label style={{ marginBottom: "10px" }}>Insureds Name</Label>
             </Grid>
             <Grid item xs={4} paddingY={1} paddingRight={1}>
               <TextFeildComp
@@ -485,7 +487,7 @@ function OnboardForm() {
           </Grid>
           <Grid item container xs={12}>
             <Grid item xs={12}>
-              <Label style={{ marginBottom: "10px" }}>Patient's Address</Label>
+              <Label style={{ marginBottom: "10px" }}>Patients Address</Label>
             </Grid>
             <Grid item xs={12 / 5}>
               <TextFeildComp
@@ -675,7 +677,7 @@ function OnboardForm() {
           </Grid>
           <Grid item container xs={12}>
             <Grid item xs={12}>
-              <Label style={{ marginBottom: "10px" }}>Insured's Address</Label>
+              <Label style={{ marginBottom: "10px" }}>Insureds Address</Label>
             </Grid>
             <Grid item xs={12 / 5}>
               <TextFeildComp
@@ -721,7 +723,7 @@ function OnboardForm() {
           <Grid item container xs={12}>
             <Grid item xs={12}>
               <Label style={{ marginBottom: "10px" }}>
-                Other Insured's Name
+                Other Insureds Name
               </Label>
             </Grid>
             <Grid item xs={4} paddingY={1} paddingRight={1}>
@@ -752,7 +754,7 @@ function OnboardForm() {
           <Grid item container xs={12}>
             <Grid item xs={4}>
               <Label style={{ marginBottom: "20px" }}>
-                Other Insured's Policy Number
+                Other Insureds Policy Number
               </Label>
               <TextFeildComp
                 type="text"
@@ -797,7 +799,7 @@ function OnboardForm() {
           </Grid>
           <Grid item container>
             <Grid item xs={12}>
-              <Label>Is Patient's condition related to </Label>{" "}
+              <Label>Is Patients condition related to </Label>{" "}
             </Grid>
             <Grid item xs={3}>
               <Label>Employment? (Current or Previous) </Label>
@@ -1029,7 +1031,7 @@ function OnboardForm() {
           </Grid>
           <Grid item xs={4}>
             <Label style={{ marginBottom: "20px" }}>
-              Insured's Plicy group or FECA number
+              Insureds Plicy group or FECA number
             </Label>
             <TextFeildComp
               type="text"
@@ -1041,7 +1043,7 @@ function OnboardForm() {
           <Grid item container xs={12}>
             <Grid item xs={3}>
               <Label style={{ marginBottom: "15px" }}>
-                Insured's Date Birth
+                Insureds Date Birth
               </Label>
               <CustomDatePicker
                 // onChange={(value) => {
@@ -1180,10 +1182,10 @@ function OnboardForm() {
             </Grid>
             <Grid item xs={12} marginBottom={2}>
               <Label>
-                Patient's Or Authorized Persons signature I authorize the
-                release of any medical or other information necessary to process
-                this claim. I also request payment of government benifits either
-                to myself or to the party who accepts assignment below
+                Patients Or Authorized Persons signature I authorize the release
+                of any medical or other information necessary to process this
+                claim. I also request payment of government benifits either to
+                myself or to the party who accepts assignment below
               </Label>
             </Grid>
             <Grid item xs={4}>
@@ -1214,7 +1216,7 @@ function OnboardForm() {
 
           <Grid item container xs={12}>
             <Grid item xs={12}>
-              <Label>Insured's Or Authorized Person Signature</Label>
+              <Label>Insureds Or Authorized Person Signature</Label>
             </Grid>
             <Grid item xs={12} marginBottom={2}>
               <Label>
@@ -1760,16 +1762,16 @@ function OnboardForm() {
                     borderBottom: "1px solid green",
                   }}
                 >
-                  <th colspan="2">A. Dates of service</th>
-                  <th colspan="1">B.</th>
-                  <th colspan="1">C.</th>
-                  <th colspan="2">D. Procedure services or supplies</th>
-                  <th colspan="1">E.</th>
-                  <th colspan="1">F.</th>
-                  <th colspan="1">G.</th>
-                  <th colspan="1">H.</th>
-                  <th colspan="1">I.</th>
-                  <th colspan="1">J.</th>
+                  <th colSpan="2">A. Dates of service</th>
+                  <th colSpan="1">B.</th>
+                  <th colSpan="1">C.</th>
+                  <th colSpan="2">D. Procedure services or supplies</th>
+                  <th colSpan="1">E.</th>
+                  <th colSpan="1">F.</th>
+                  <th colSpan="1">G.</th>
+                  <th colSpan="1">H.</th>
+                  <th colSpan="1">I.</th>
+                  <th colSpan="1">J.</th>
                 </tr>
                 <tr
                   style={{
@@ -1777,11 +1779,11 @@ function OnboardForm() {
                     borderBottom: "1px solid green",
                   }}
                 >
-                  <th colspan="1">From</th>
-                  <th colspan="1">To</th>
+                  <th colSpan="1">From</th>
+                  <th colSpan="1">To</th>
                   <th></th>
                   <th></th>
-                  <th colspan="2">(Explain unusual Circumferance)</th>
+                  <th colSpan="2">(Explain unusual Circumferance)</th>
                   <th></th>
                   <th></th>
                   <th></th>
@@ -1802,8 +1804,8 @@ function OnboardForm() {
                   </th>
                   <th>Diagnosis Pointer</th>
                   <th>Emg</th>
-                  <th colspan="1">CPT/HCPCS</th>
-                  <th colspan="1">Modifier</th>
+                  <th colSpan="1">CPT/HCPCS</th>
+                  <th colSpan="1">Modifier</th>
                   <th> Diagnosis Pointer</th>
                   <th> Charges </th>
                   <th>Days Or Units</th>
@@ -1850,12 +1852,15 @@ function OnboardForm() {
                   </td>
                   <td>
                     <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
-                      >
-                        07
-                      </SmallEditableComp>
+                      <Tooltip title="old value: 90658">
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                          style={{ backgroundColor: "red", color: "#fff" }}
+                        >
+                          87635
+                        </SmallEditableComp>
+                      </Tooltip>
                     </div>
                   </td>
                   <td>
@@ -1871,8 +1876,9 @@ function OnboardForm() {
                       <SmallEditableComp
                         contentEditable
                         theme={{ width: "100%" }}
+                        style={{ backgroundColor: "#005061", color: "#fff" }}
                       >
-                        07
+                        E11.9
                       </SmallEditableComp>
                     </div>
                   </td>
@@ -1962,8 +1968,9 @@ function OnboardForm() {
                       <SmallEditableComp
                         contentEditable
                         theme={{ width: "100%" }}
+                        style={{ backgroundColor: "#005061", color: "#fff" }}
                       >
-                        07
+                        92716
                       </SmallEditableComp>
                     </div>
                   </td>
@@ -1980,8 +1987,9 @@ function OnboardForm() {
                       <SmallEditableComp
                         contentEditable
                         theme={{ width: "100%" }}
+                        style={{ backgroundColor: "#005061", color: "#fff" }}
                       >
-                        07
+                        I10
                       </SmallEditableComp>
                     </div>
                   </td>
@@ -2334,8 +2342,27 @@ function OnboardForm() {
           </Grid>
         </Grid>
       </Box>
+
+      <SizedBox height={30} />
+      <FlexContainer>
+        <Button
+          variant="outlined"
+          color="secondary"
+          onClick={() => setShowPreview(true)}
+        >
+          Preview
+        </Button>
+        <Button variant="contained" color="success">
+          Approve
+        </Button>
+        <Button variant="contained" color="error">
+          Reject
+        </Button>
+      </FlexContainer>
+
+      {showPreview && <Preview showPreview={() => setShowPreview(false)} />}
     </Box>
   );
 }
 
-export default OnboardForm;
+export default CodingForm;

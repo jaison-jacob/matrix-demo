@@ -1,19 +1,32 @@
-import { useState } from "react";
-import OnboardForm from "./components/pages/OnboardForm";
-import OnBoardList from "./components/pages/OnboardList";
 import Root from "./components/Root";
 import { BrowserRouter } from "react-router-dom";
+import {
+  FlexContainer,
+  GlobalStyle,
+} from "./components/styled-components/Global.styled";
+import ThemeContext from "./theme/themeContext";
+import PageHeader from "./components/header/header";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div>
-      {/* <OnboardForm /> */}
-      {/* <OnBoardList /> */}
-      <BrowserRouter>
-        <Root />
-      </BrowserRouter>
+      <ThemeContext>
+        <BrowserRouter>
+          <GlobalStyle />
+          <FlexContainer>
+            <PageHeader />
+            <div
+              style={{
+                width: "calc(100vw - 100px)",
+                height: "100vh",
+                overflow: "auto",
+              }}
+            >
+              <Root />
+            </div>
+          </FlexContainer>
+        </BrowserRouter>
+      </ThemeContext>
     </div>
   );
 }

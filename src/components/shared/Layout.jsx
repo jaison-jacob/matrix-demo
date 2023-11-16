@@ -10,7 +10,7 @@ import CustomLoader from "../shared/CustomLoader";
 
 const MainLayout = styled("div")(() => ({
   // width: "calc(100% - 2px)",
-  height: "100vh",
+  // height: "100vh",
 }));
 
 const InnerLayout = styled("div")(() => ({

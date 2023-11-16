@@ -40,7 +40,7 @@ export const StyledTextFeildContainer = styled(TextField)(
 );
 
 const TextFeildComp = (props) => {
-  const { type, label, variant, endormentIcon } = props;
+  const { type, label, variant, endormentIcon, value } = props;
   const endormentIco = endormentIcon;
   return (
     <Box
@@ -54,6 +54,7 @@ const TextFeildComp = (props) => {
       <StyledTextFeildContainer
         id="standard-basic"
         label={label || "Name"}
+        value={value}
         variant={variant || "standard"}
         type={type || "text"}
         multiline
