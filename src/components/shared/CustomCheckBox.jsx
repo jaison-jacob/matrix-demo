@@ -5,7 +5,7 @@ export const StyledCheckBoxFeildContainer = styled(Checkbox)(
   ({ theme }, props) => ({
     ".MuiTypography-root": {
       fontFamily: "Poppins",
-      fontSize: "14px",
+      fontSize: "12px",
       color: "#757575",
     },
   })
@@ -24,7 +24,7 @@ function CustomCheckBox(props) {
         color="primary"
       />
       <Typography
-        sx={{ fontFamily: "Poppins", fontSize: "14px", color: "#757575" }}
+        sx={{ fontFamily: "Poppins", fontSize: "12px", color: "#757575" }}
       >
         {label}
       </Typography>

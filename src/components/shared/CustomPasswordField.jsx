@@ -11,6 +11,36 @@ const StyledTextField = styled(TextField)(({ showpassword, value }) => {
       fontFamily: !showpassword && value && "text-security-disc",
       "-webkit-text-security": !showpassword && value && "disc",
     },
+    ".MuiFormLabel-root ": {
+      color: "#757575 !important",
+      fontFamily: "Poppins",
+    },
+    ".css-1x51dt5-MuiInputBase-input-MuiInput-input": {
+      color: "#757575 !important",
+      fontFamily: "Poppins",
+    },
+    ".css-1rb63tl-MuiInputBase-root-MuiInput-root": {
+      color: "#757575 !important",
+      fontFamily: "Poppins",
+    },
+    ".mui-focused": {
+      color: "#757575",
+      fontFamily: "Poppins",
+    },
+    ".css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root": {
+      fontSize: "14px",
+    },
+    ".MuiInputBase-root:after": {
+      borderBottom: "2px solid #757575 !important",
+    },
+    ".css-nxo287-MuiInputBase-input-MuiOutlinedInput-input": {
+      padding: "14px 14px",
+      fontSize: "14px",
+      color: "#757575",
+    },
+    ".MuiOutlinedInput-notchedOutline": {
+      border: "1px solid #757575 !important",
+    },
   };
 });
 
@@ -62,7 +92,8 @@ export function CustomPasswordField({
       showpassword={showPassword}
       error={Boolean(customHelpertext || (touched?.[name] && errors?.[name]))}
       helperText={
-        customHelpertext || (touched?.[name] && errors?.[name] ? errors?.[name] : "")
+        customHelpertext ||
+        (touched?.[name] && errors?.[name] ? errors?.[name] : "")
       }
       InputProps={{
         readOnly: isViewMode,

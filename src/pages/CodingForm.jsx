@@ -35,7 +35,6 @@ export const Label = styled("div")(() => ({
 }));
 
 export const SmallEditableComp = styled("div")(({ theme }) => {
-  console.log(" theme ", theme?.width);
   return {
     border: "1px solid #757575 !important",
     padding: "5px",

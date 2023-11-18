@@ -1,32 +1,22 @@
+import React from "react";
 import Root from "./components/Root";
 import { BrowserRouter } from "react-router-dom";
-import {
-  FlexContainer,
-  GlobalStyle,
-} from "./components/styled-components/Global.styled";
+import { GlobalStyle } from "./components/styled-components/Global.styled";
 import ThemeContext from "./theme/themeContext";
-import PageHeader from "./components/header/header";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 function App() {
   return (
     <div>
-      <ThemeContext>
-        <BrowserRouter>
-          <GlobalStyle />
-          <FlexContainer>
-            <PageHeader />
-            <div
-              style={{
-                width: "calc(100vw - 100px)",
-                height: "100vh",
-                overflow: "auto",
-              }}
-            >
-              <Root />
-            </div>
-          </FlexContainer>
-        </BrowserRouter>
-      </ThemeContext>
+      <Provider store={store}>
+        <ThemeContext>
+          <BrowserRouter>
+            <GlobalStyle />
+            <Root />
+          </BrowserRouter>
+        </ThemeContext>
+      </Provider>
     </div>
   );
 }

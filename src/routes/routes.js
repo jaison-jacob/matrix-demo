@@ -35,11 +35,6 @@ export const matrixRoutes = [
     exact: true,
   },
   {
-    path: matrixPath.LOGIN,
-    Component: Login,
-    exact: true,
-  },
-  {
     path: matrixPath.VISIT,
     Component: Visit,
     exact: true,
@@ -67,6 +62,15 @@ export const matrixRoutes = [
   {
     path: matrixPath.VISITPATIENT,
     Component: PatientInfo,
+    exact: true,
+  },
+];
+
+export const loginFormRoutes = [
+  //  login
+  {
+    path: matrixPath.LOGIN,
+    Component: Login,
     exact: true,
   },
 ];

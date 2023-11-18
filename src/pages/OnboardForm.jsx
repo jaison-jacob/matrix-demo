@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Paper, Typography } from "@mui/material";
 import TextFeildComp from "../components/shared/TextFeildComp";
 import styled from "styled-components";
 import CustomCheckBox from "../components/shared/CustomCheckBox";
@@ -20,7 +20,7 @@ export const DateBirth = styled("div")(() => ({
 export const Label = styled("div")(() => ({
   color: "#757575 !important",
   fontFamily: "Poppins",
-  fontSize: "14px",
+  fontSize: "13px",
   // borderBottom: "1px solid grey",
   // width: "fit-content",
   fontWeight: 600,
@@ -29,7 +29,6 @@ export const Label = styled("div")(() => ({
 }));
 
 export const SmallEditableComp = styled("div")(({ theme }) => {
-  console.log(" theme ", theme?.width);
   return {
     border: "1px solid #757575 !important",
     padding: "5px",
@@ -67,14 +66,15 @@ function OnboardForm() {
   //   { uri: cms1500Form }, // Local File
   // ];
   return (
-    <Box
+    <Paper
       sx={{
-        // backgroundColor: "#EEEEEE",
-        // height: "100vh",
-        padding: 1,
+        padding: "16px 24px",
+        // height: "calc(100vh - 120px)",
+        overflow: "hidden",
       }}
+      elevation={0}
     >
-      <Breadcrumb title="Health Insurance Claim Form" />
+      {/* <Breadcrumb title="Health Insurance Claim Form" /> */}
       {/* <Typography
         className="customClass"
         sx={{
@@ -89,7 +89,7 @@ function OnboardForm() {
       >
         Health Insurance Claim Form
       </Typography> */}
-      <Typography
+      {/* <Typography
         className="customClass"
         sx={{
           letterSpacing: 1.5,
@@ -101,7 +101,7 @@ function OnboardForm() {
         gutterBottom
       >
         Approved By National Uniform Claim Committee (NUCC) O2M2
-      </Typography>
+      </Typography> */}
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           <Grid item container xs={12}>
@@ -413,7 +413,7 @@ function OnboardForm() {
                 // required
                 label={"Date of birth"}
                 name={"scheduleDate"}
-                value={new Date('10/11/1993')}
+                value={new Date("10/11/1993")}
                 // isViewMode={expiredTime() || isViewMode}
                 // minDate={new Date()}
                 fullWidth
@@ -1848,7 +1848,7 @@ function OnboardForm() {
                       <SmallEditableComp
                         contentEditable
                         theme={{ width: "100%" }}
-                        style={{backgroundColor: '#005061', color: '#fff'}}
+                        style={{ backgroundColor: "#005061", color: "#fff" }}
                       >
                         90658
                       </SmallEditableComp>
@@ -1867,7 +1867,7 @@ function OnboardForm() {
                       <SmallEditableComp
                         contentEditable
                         theme={{ width: "100%" }}
-                        style={{backgroundColor: '#005061', color: '#fff'}}
+                        style={{ backgroundColor: "#005061", color: "#fff" }}
                       >
                         E11.9
                       </SmallEditableComp>
@@ -1959,7 +1959,7 @@ function OnboardForm() {
                       <SmallEditableComp
                         contentEditable
                         theme={{ width: "100%" }}
-                        style={{backgroundColor: '#005061', color: '#fff'}}
+                        style={{ backgroundColor: "#005061", color: "#fff" }}
                       >
                         92716
                       </SmallEditableComp>
@@ -1978,7 +1978,7 @@ function OnboardForm() {
                       <SmallEditableComp
                         contentEditable
                         theme={{ width: "100%" }}
-                        style={{backgroundColor: '#005061', color: '#fff'}}
+                        style={{ backgroundColor: "#005061", color: "#fff" }}
                       >
                         I10
                       </SmallEditableComp>
@@ -2333,7 +2333,7 @@ function OnboardForm() {
           </Grid>
         </Grid>
       </Box>
-    </Box>
+    </Paper>
   );
 }
 

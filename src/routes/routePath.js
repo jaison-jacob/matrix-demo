@@ -1,6 +1,6 @@
 export const matrixPath = {
   // onboard
-  ONBOARD_FORM: "/onboardForm",
+  ONBOARD_FORM: "/claimForm",
   ONBOARD_LIST: "/onboardList",
 
   //show data

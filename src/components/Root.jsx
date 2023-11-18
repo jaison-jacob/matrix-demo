@@ -1,17 +1,16 @@
-import { ThemeProvider } from "@mui/material";
 import React from "react";
 import { ProtectedRoute } from "../routes/protectedRoute";
-// import { Routes, Route } from "react-router-dom";
-import Layout from "./shared/Layout";
+import { ToastMessage } from "./shared/ToastMessage";
+import CustomLoader from "./shared/CustomLoader";
+import { useSelector } from "react-redux";
 
 const Root = () => {
-  console.log("Root call");
+  const loader = useSelector((state) => state.isLoading);
   return (
     <div>
+      <ToastMessage />
+      {loader && <CustomLoader />}
       <ProtectedRoute />
-      {/* <Routes>
-        <Route path="/" exact="false" Component={<Layout />}></Route>
-      </Routes> */}
     </div>
   );
 };
