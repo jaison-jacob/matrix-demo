@@ -4,8 +4,8 @@ import { DataGrid } from "@mui/x-data-grid";
 
 export const StyleCustomTable = styled(DataGrid)(({ theme, props }) => ({
   ".css-yrdy0g-MuiDataGrid-columnHeaderRow": {
-    backgroundColor: "#03CDE1 !important",
-    fontFamily: "Poppins",
+    backgroundColor: "#47507A !important",
+    fontFamily: "Poppins !important",
     color: "#fff",
     fontWeight: 600,
     ".css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root": {
@@ -22,13 +22,13 @@ export const StyleCustomTable = styled(DataGrid)(({ theme, props }) => ({
     },
   },
   ".MuiDataGrid-row": {
-    fontFamily: "Poppins",
+    fontFamily: "Poppins !important",
     ".MuiDataGrid-cell:focus": {
-      outline: "solid #03CDE1 1px",
+      outline: "solid #47507A 1px",
     },
   },
   ".css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked": {
-    color: "#03CDE1",
+    color: "#47507A",
   },
   ".css-ptkaw2-MuiDataGrid-root": {
     ".MuiDataGrid-cell:focus": {
@@ -38,12 +38,12 @@ export const StyleCustomTable = styled(DataGrid)(({ theme, props }) => ({
   ".MuiDataGrid-footerContainer": {
     fontFamily: "Poppins",
     ".css-pdct74-MuiTablePagination-selectLabel": {
-      fontFamily: "Poppins",
+      fontFamily: "Poppins !important",
     },
   },
   ".MuiList-root": {
     ".css-10hburv-MuiTypography-root": {
-      fontFamily: "Poppins",
+      fontFamily: "Poppins !important",
     },
   },
 }));
