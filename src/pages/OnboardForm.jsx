@@ -1184,7 +1184,7 @@ function OnboardForm() {
                 variant="outlined"
               />
             </Grid>
-            <Grid item xs={3.5} >
+            <Grid item xs={3.5}>
               <Label style={{ marginBottom: "10px" }}>
                 Insurance Plan Name or programe name
               </Label>
@@ -1228,9 +1228,7 @@ function OnboardForm() {
           </Grid>
 
           <Grid item container xs={12} columnGap={2}>
-           
-            
-            <Grid item xs={3.5} >
+            <Grid item xs={3.5}>
               <Label style={{ marginBottom: "10px" }}>
                 Other Claim Id (Designated by NUCC)
               </Label>
@@ -1241,7 +1239,7 @@ function OnboardForm() {
                 variant="outlined"
               />
             </Grid>
-            
+
             <Grid item xs={4}>
               <Label style={{ marginBottom: "10px" }}>
                 Insurance Plan Name Or Programe Name
@@ -1343,7 +1341,6 @@ function OnboardForm() {
                 // touched={touched}
               />
             </Grid>
-            
           </Grid>
 
           <Grid item container xs={12}>
@@ -1891,7 +1888,7 @@ function OnboardForm() {
           </Grid>
           <Grid item xs={12}>
             <FormGroupHeader style={{ margin: "20px 0" }}>
-              Coding Table
+              Coding Details
             </FormGroupHeader>
           </Grid>
           <Grid item xs={12}>

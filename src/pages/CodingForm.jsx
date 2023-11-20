@@ -8,6 +8,7 @@ import Breadcrumb from "../components/breadcrumb/breadcrumb";
 import { FlexContainer } from "../components/styled-components/Global.styled";
 import Preview from "../components/Preview/Preview";
 import { useState } from "react";
+import ReactPdfViewer from "../components/pdfViewer/ReactPdfViewer";
 // import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
 
 export const DateBirth = styled("div")(() => ({
@@ -81,6 +82,7 @@ function OnboardForm() {
   //   { uri: cms1500Form }, // Local File
   // ];'
   const [showPreview, setShowPreview] = useState(false);
+  const pdfUrl = "../assets/form-cms1500.pdf";
   return (
     <Paper
       sx={{
@@ -1976,7 +1978,7 @@ function OnboardForm() {
           </Grid>
           <Grid item xs={12}>
             <FormGroupHeader style={{ margin: "20px 0" }}>
-              Coding Table
+              Coding Details
             </FormGroupHeader>
           </Grid>
           <Grid item xs={12}>
@@ -2730,6 +2732,8 @@ function OnboardForm() {
           </Grid>
         </Grid>
       </Box>
+      {}
+      {/* <ReactPdfViewer pdfUrl={pdfUrl} /> */}
       <FlexContainer>
         <Button
           variant="outlined"

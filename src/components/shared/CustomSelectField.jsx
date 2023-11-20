@@ -32,11 +32,12 @@ export const StyledSelectFeildContainer = styled(FormControl)(
     ".MuiInputBase-root:after": {
       borderBottom: "2px solid #757575 !important",
     },
-    ".css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input": {
-      padding: "14px 14px",
-      fontSize: "14px",
-      color: "#757575",
-    },
+    ".css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input":
+      {
+        padding: "14px 14px",
+        fontSize: "14px",
+        color: "#757575",
+      },
     ".MuiOutlinedInput-notchedOutline": {
       border: "1px solid #757575 !important",
     },
