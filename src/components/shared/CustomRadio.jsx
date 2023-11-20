@@ -12,19 +12,22 @@ const RadioBox = styled("div")(({ rowBreak }) => ({
   flexDirection: rowBreak && "column",
 }));
 const StyledFormControlLabel = styled(FormControlLabel)(({ theme }) => ({
+  display: "block",
   ".MuiFormControlLabel-root .Mui-disabled": {
     opacity: "1",
     cursor: "not-allowed",
   },
 
-  ".Mui-disabled": {
-    color: "#000 !important",
-  },
   ".Mui-checked": {
     color: "#006bbd !important",
   },
+  ".Mui-disabled": {
+    color: "#757575 !important",
+  },
   ".MuiFormControlLabel-label	": {
     color: "#757575!important",
+    fontFamily: "Poppins",
+    fontSize: "13px",
   },
 }));
 
@@ -75,9 +78,10 @@ function CustomRadio({
           //   error={Boolean(
           //     customHelpertext || (touched?.[name] && errors?.[name])
           //   ).toString()}
-          //   value={value || ""}
+          value={value || ""}
           style={style}
-          //   defaultValue={defaultValue}
+          defaultValue={defaultValue}
+          row
         >
           {inputValues?.map((option, i) => (
             <StyledFormControlLabel

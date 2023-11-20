@@ -9,6 +9,7 @@ import styled from "styled-components";
 export const StyledDateFeildContainer = styled(DatePicker)(
   ({ theme }, props) => ({
     width: "100%",
+    padding: "0",
     ".MuiTextField-root": {
       width: "100% !important",
     },

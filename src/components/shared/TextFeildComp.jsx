@@ -1,8 +1,6 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
+import React from "react";
 import TextField from "@mui/material/TextField";
 import styled from "styled-components";
-import { IconButton, InputAdornment } from "@mui/material";
 
 export const StyledTextFeildContainer = styled(TextField)(
   ({ theme }, props) => ({
@@ -25,7 +23,7 @@ export const StyledTextFeildContainer = styled(TextField)(
     ".MuiInputBase-root:after": {
       borderBottom: "2px solid #757575 !important",
     },
-    ".css-dpjnhs-MuiInputBase-root-MuiOutlinedInput-root": {
+    ".css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input": {
       padding: "14px 14px",
       fontSize: "14px",
       color: "#757575",
@@ -39,28 +37,103 @@ export const StyledTextFeildContainer = styled(TextField)(
   })
 );
 
-const TextFeildComp = (props) => {
-  const { type, label, variant, endormentIcon, value } = props;
-  const endormentIco = endormentIcon;
+export default function CustomTextField({
+  type,
+  name,
+  onChange,
+  value,
+  variant,
+  onBlur,
+  label,
+  disabled,
+  style,
+  isViewMode,
+  maxLength,
+  fullWidth,
+  fieldType,
+  autoComplete,
+  onkeydown,
+  placeholder,
+  endAdornment,
+  touched,
+  errors,
+  customHelpertext,
+  RestrictCopyPaste,
+}) {
+  const handleKeyPress = (e) => {
+    if (fieldType === "mobile" && e.keyCode !== 13) {
+      return !/[0-9]/.test(e.key) && e.preventDefault();
+    }
+    if (fieldType === "alphaNumeric") {
+      return !/[0-9A-Za-z-/:_]/.test(e.key) && e.preventDefault();
+    }
+    if (fieldType === "alphabets") {
+      return !/[A-Za-z/]/.test(e.key) && e.preventDefault();
+    }
+    if (type === "number" && e.keyCode !== 13) {
+      return !/[0-9]/.test(e.key) && e.preventDefault();
+    }
+    if (fieldType === "decimal") {
+      return !/[0-9.]/.test(e.key) && e.preventDefault();
+    }
+  };
+
+  const handleCopy = (event) => {
+    if (RestrictCopyPaste) {
+      event.preventDefault();
+    }
+  };
+
+  const handlePaste = (event) => {
+    if (RestrictCopyPaste) {
+      event.preventDefault();
+    }
+  };
   return (
-    <Box
-      component="form"
-      sx={{
-        "& > :not(style)": { width: "100%", marginBottom: 3 },
-      }}
-      noValidate
-      autoComplete="off"
-    >
+    <>
       <StyledTextFeildContainer
         id="standard-basic"
-        label={label || "Name"}
-        value={value}
-        variant={variant || "standard"}
-        type={type || "text"}
-        multiline
+        label={label}
+        placeholder={placeholder}
+        variant={variant ? variant : "outlined"}
+        type={"text"}
+        name={name}
+        fullWidth={fullWidth || true}
+        autoComplete={autoComplete}
+        onChange={onChange}
+        onBlur={onBlur}
+        value={value || ""}
+        endadornment={endAdornment}
+        style={style}
+        error={Boolean(
+          customHelpertext
+            ? touched && errors
+            : touched?.[name] && errors?.[name]
+        )}
+        helperText={
+          customHelpertext
+            ? touched && errors
+              ? errors
+              : ""
+            : touched?.[name] && errors?.[name]
+            ? errors?.[name]
+            : ""
+        }
+        inputProps={{
+          endadornment: endAdornment,
+          onKeyPress: (e) => handleKeyPress(e),
+          onKeyDown: (e) => onkeydown && onkeydown(e),
+          readOnly: isViewMode,
+          disabled: disabled,
+        }}
+        onCopy={handleCopy}
+        onPaste={handlePaste}
+        onInput={(e) => {
+          e.target.value &&
+            maxLength &&
+            (e.target.value = e.target.value.toString().slice(0, maxLength));
+        }}
       />
-    </Box>
+    </>
   );
-};
-
-export default TextFeildComp;
+}

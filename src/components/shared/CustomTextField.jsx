@@ -34,6 +34,9 @@ export const StyledTextFeildContainer = styled(TextField)(
     ".MuiOutlinedInput-notchedOutline": {
       border: "1px solid #757575 !important",
     },
+    ".css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input": {
+      fontFamily: "Poppins",
+    },
   })
 );
 

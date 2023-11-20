@@ -9,7 +9,7 @@ const sideBarData = [
     icon: NewspaperOutlinedIcon,
     routePath: matrixPath.VISIT,
     routeKey: "visit",
-    menuId: "pat1",
+    menuId: ["pat1", "cod1"],
     pageName: "Visit Assessment Information",
   },
   {
@@ -17,15 +17,15 @@ const sideBarData = [
     icon: AddToQueueIcon,
     routePath: matrixPath.ONBOARD_FORM,
     routeKey: "claimForm",
-    menuId: "pat1",
+    menuId: ["pat1", "cod1"],
     pageName: "Health Insurance Claim Form",
   },
   {
     label: "coding Validatation",
     icon: FactCheckOutlinedIcon,
     routePath: matrixPath.CODING,
-    routeKey: "Validatation",
-    menuId: "cod1",
+    routeKey: "coding-validation",
+    menuId: ["cod1"],
     pageName: "Coding Validation",
   },
 ];

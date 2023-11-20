@@ -11,6 +11,7 @@ export const StyledTextAreaFeildContainer = styled(TextField)(
     ".css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input": {
       color: "#757575 !important",
       fontFamily: "Poppins",
+      fontSize:"13px"
     },
     ".mui-focused": {
       color: "#757575",

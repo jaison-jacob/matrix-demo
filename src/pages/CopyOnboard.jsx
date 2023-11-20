@@ -1,10 +1,12 @@
-import { Box, Grid, Paper, Typography } from "@mui/material";
+import { Box, Button, Grid, Paper, Typography } from "@mui/material";
 import TextFeildComp from "../components/shared/TextFeildComp";
 import styled from "styled-components";
 import CustomCheckBox from "../components/shared/CustomCheckBox";
 import CustomRadio from "../components/shared/CustomRadio";
 import { CustomDatePicker } from "../components/shared/CustomDatePicker";
 import Breadcrumb from "../components/breadcrumb/breadcrumb";
+import { FlexContainer } from "../components/styled-components/Global.styled";
+import Preview from "../components/Preview/Preview";
 // import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
 
 export const DateBirth = styled("div")(() => ({
@@ -76,7 +78,8 @@ export const TableStyle = styled("table")(() => ({
 function OnboardForm() {
   // const docs = [
   //   { uri: cms1500Form }, // Local File
-  // ];
+  // ];'
+  const [showPreview, setShowPreview] = useState(false);
   return (
     <Paper
       sx={{
@@ -1184,7 +1187,7 @@ function OnboardForm() {
                 variant="outlined"
               />
             </Grid>
-            <Grid item xs={3.5} >
+            <Grid item xs={3.5}>
               <Label style={{ marginBottom: "10px" }}>
                 Insurance Plan Name or programe name
               </Label>
@@ -1228,9 +1231,7 @@ function OnboardForm() {
           </Grid>
 
           <Grid item container xs={12} columnGap={2}>
-           
-            
-            <Grid item xs={3.5} >
+            <Grid item xs={3.5}>
               <Label style={{ marginBottom: "10px" }}>
                 Other Claim Id (Designated by NUCC)
               </Label>
@@ -1241,7 +1242,7 @@ function OnboardForm() {
                 variant="outlined"
               />
             </Grid>
-            
+
             <Grid item xs={4}>
               <Label style={{ marginBottom: "10px" }}>
                 Insurance Plan Name Or Programe Name
@@ -1343,7 +1344,6 @@ function OnboardForm() {
                 // touched={touched}
               />
             </Grid>
-            
           </Grid>
 
           <Grid item container xs={12}>
@@ -1895,509 +1895,665 @@ function OnboardForm() {
             </FormGroupHeader>
           </Grid>
           <Grid item xs={12}>
-            <TableStyle>
-              <thead>
-                <tr
-                  style={{
-                    marginBottom: "20px",
-                    borderBottom: "1px solid green",
-                  }}
-                >
-                  <th colSpan="2">A. Dates of service</th>
-                  <th colSpan="1">B.</th>
-                  <th colSpan="1">C.</th>
-                  <th colSpan="2">D. Procedure services or supplies</th>
-                  <th colSpan="1">E.</th>
-                  <th colSpan="1">F.</th>
-                  <th colSpan="1">G.</th>
-                  <th colSpan="1">H.</th>
-                  <th colSpan="1">I.</th>
-                  <th colSpan="1">J.</th>
-                </tr>
-                <tr
-                  style={{
-                    marginBottom: "20px",
-                    borderBottom: "1px solid green",
-                  }}
-                >
-                  <th colSpan="1">From</th>
-                  <th colSpan="1">To</th>
-                  <th></th>
-                  <th></th>
-                  <th colSpan="2">(Explain unusual Circumferance)</th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th>Rendering</th>
-                </tr>
-                <tr>
-                  <th>
-                    <span>MM</span>
-                    <span style={{ marginLeft: "5px" }}>DD</span>
-                    <span style={{ marginLeft: "5px" }}>YY</span>
-                  </th>
-                  <th>
-                    <span>MM</span>
-                    <span style={{ marginLeft: "5px" }}>DD</span>
-                    <span style={{ marginLeft: "5px" }}>YY</span>
-                  </th>
-                  <th>Diagnosis Pointer</th>
-                  <th>Emg</th>
-                  <th colSpan="1">CPT/HCPCS</th>
-                  <th colSpan="1">Modifier</th>
-                  <th> Diagnosis Pointer</th>
-                  <th> Charges </th>
-                  <th>Days Or Units</th>
-                  <th>Deposity Fertility plan</th>
-                  <th>ID Qual</th>
-                  <th>Provider ID</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+            <Grid item xs={12}>
+              <TableStyle>
+                <thead>
+                  <tr
+                    style={{
+                      marginBottom: "20px",
+                      borderBottom: "1px solid green",
+                    }}
+                  >
+                    <th colSpan="2">A. Dates of service</th>
+                    <th colSpan="1">B.</th>
+                    <th colSpan="1">C.</th>
+                    <th colSpan="2">D. Procedure services or supplies</th>
+                    <th colSpan="1">E.</th>
+                    <th colSpan="1">F.</th>
+                    <th colSpan="1">G.</th>
+                    <th colSpan="1">H.</th>
+                    <th colSpan="1">I.</th>
+                    <th colSpan="1">J.</th>
+                  </tr>
+                  <tr
+                    style={{
+                      marginBottom: "20px",
+                      borderBottom: "1px solid green",
+                    }}
+                  >
+                    <th colSpan="1">From</th>
+                    <th colSpan="1">To</th>
+                    <th></th>
+                    <th></th>
+                    <th colSpan="2">(Explain unusual Circumferance)</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>Rendering</th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <span>MM</span>
+                      <span style={{ marginLeft: "5px" }}>DD</span>
+                      <span style={{ marginLeft: "5px" }}>YY</span>
+                    </th>
+                    <th>
+                      <span>MM</span>
+                      <span style={{ marginLeft: "5px" }}>DD</span>
+                      <span style={{ marginLeft: "5px" }}>YY</span>
+                    </th>
+                    <th>Diagnosis Pointer</th>
+                    <th>Emg</th>
+                    <th colSpan="1">CPT/HCPCS</th>
+                    <th colSpan="1">Modifier</th>
+                    <th> Diagnosis Pointer</th>
+                    <th> Charges </th>
+                    <th>Days Or Units</th>
+                    <th>Deposity Fertility plan</th>
+                    <th>ID Qual</th>
+                    <th>Provider ID</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
-                        style={{ backgroundColor: "#005061", color: "#fff" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        90658
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
-                        style={{ backgroundColor: "#005061", color: "#fff" }}
+                        <Tooltip title="old value: 90658">
+                          <SmallEditableComp
+                            contentEditable
+                            theme={{ width: "100%" }}
+                            style={{ backgroundColor: "red", color: "#fff" }}
+                          >
+                            87635
+                          </SmallEditableComp>
+                        </Tooltip>
+                      </div>
+                    </td>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        E11.9
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                          style={{ backgroundColor: "#005061", color: "#fff" }}
+                        >
+                          E11.9
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <div>NPI</div>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <div>NPI</div>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
-                        style={{ backgroundColor: "#005061", color: "#fff" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        92716
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
-                        style={{ backgroundColor: "#005061", color: "#fff" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        I10
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                          style={{ backgroundColor: "#005061", color: "#fff" }}
+                        >
+                          92716
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                          style={{ backgroundColor: "#005061", color: "#fff" }}
+                        >
+                          I10
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <div>NPI</div>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <div>NPI</div>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <div>NPI</div>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <div>NPI</div>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <div>NPI</div>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </TableStyle>
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
+                      >
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
+                      >
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
+                      >
+                        <div>NPI</div>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
+                      >
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          07
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </TableStyle>
+            </Grid>
           </Grid>
           <Grid item container xs={12}>
             <Grid item xs={12}>
@@ -2481,6 +2637,23 @@ function OnboardForm() {
           </Grid>
         </Grid>
       </Box>
+      <FlexContainer>
+        <Button
+          variant="outlined"
+          color="secondary"
+          onClick={() => setShowPreview(true)}
+        >
+          Preview
+        </Button>
+        <Button variant="contained" color="success">
+          Approve
+        </Button>
+        <Button variant="contained" color="error">
+          Reject
+        </Button>
+      </FlexContainer>
+
+      {showPreview && <Preview showPreview={() => setShowPreview(false)} />}
     </Paper>
   );
 }

@@ -28,6 +28,9 @@ a:hover {
 /* * {
   font-family: "Roboto", sans-serif;
 } */
+* {
+  font-family: "Poppins";
+}
 
 body {
   margin: 0;
@@ -123,4 +126,37 @@ button:focus-visible {
 
 [contenteditable] {
   outline: 0px solid transparent;
+}
+
+/* patient info table style */
+
+#patientInfo {
+  font-family: "Poppins";
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#patientInfo td,
+#patientInfo th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size: 12px;
+}
+
+#patientInfo tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#patientInfo tr:hover {
+  background-color: #ddd;
+}
+
+#patientInfo th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #47507a;
+  color: white;
+  font-size: 12px;
+  letter-spacing: 1px;
 }

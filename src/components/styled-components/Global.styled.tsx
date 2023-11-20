@@ -30,6 +30,7 @@ export const GlobalStyle = createGlobalStyle`
       font-weight: 400;
       font-size: 13px;
       line-height: 1.6;
+      font-family:"Poppins"
     }
 
     ul {
@@ -82,6 +83,6 @@ export const FlexJustifyContainer = styled(FlexContainer)`
 `;
 
 export const SizedBox = styled.div<{ height?: number; width?: number }>`
-  height: ${(props) => props.height + 'px' || 0};
-  width: ${(props) => props.width + 'px' || 0};
+  height: ${(props) => props.height + "px" || 0};
+  width: ${(props) => props.width + "px" || 0};
 `;

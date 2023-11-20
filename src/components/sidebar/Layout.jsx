@@ -47,8 +47,8 @@ export default function Layout() {
   const location = useLocation();
 
   React.useEffect(() => {
-    const currentSidebarData = sideBarData.filter(
-      (item) => item.menuId == myProfileData.roleId
+    const currentSidebarData = sideBarData.filter((item) =>
+      item.menuId.includes(myProfileData.roleId)
     );
 
     const selectedPage = currentSidebarData.filter((item) => {
