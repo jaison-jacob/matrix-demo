@@ -135,7 +135,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -171,7 +171,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -207,7 +207,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -243,7 +243,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -279,7 +279,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -315,7 +315,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -351,7 +351,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -388,26 +388,30 @@ function OnboardForm() {
               <TextFeildComp
                 type="text"
                 label="Last Name"
-                value="Davis"
+                value="Salemy"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
               />
             </Grid>
             <Grid item xs={4} padding={1}>
               <TextFeildComp
                 type="text"
                 label="First Name"
-                value="Christine"
+                value="Cheryl"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
               />
             </Grid>
             <Grid item xs={4} padding={1}>
               <TextFeildComp
                 type="text"
                 label="Middle Name"
+                value="A"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
               />
             </Grid>
           </Grid>
@@ -423,8 +427,8 @@ function OnboardForm() {
                 // required
                 label={"Date of birth"}
                 name={"scheduleDate"}
-                value={new Date("10/11/1993")}
-                // isViewMode={expiredTime() || isViewMode}
+                value={new Date("10/16/1966")}
+                isViewMode={false}
                 // minDate={new Date()}
                 fullWidth
                 // value={values.scheduleDate}
@@ -447,14 +451,14 @@ function OnboardForm() {
                   { id: 2, name: "Female", value: "Female" },
                 ]}
                 style={{ flexDirection: "row", marginTop: 0 }}
-                value={{ id: 1, name: "Male", value: "Male" }}
+                value={2}
                 // defaultValue={"1"}
                 // onChange={(e) => {
                 //   setFieldValue("campaignTypeId", e.target.value);
                 //   setFieldValue("campaignFile", "");
                 //   setFieldValue("campaignFileName", "");
                 // }}
-                // disabled={isViewMode}
+                disabled={false}
                 // errors={errors}
                 // touched={touched}
               />
@@ -471,6 +475,7 @@ function OnboardForm() {
                 label="No street"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                value="500 West Summit Hill Drive"
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
@@ -479,6 +484,8 @@ function OnboardForm() {
                 label="City"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                value="Knoxville"
+                disabled={false}
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
@@ -487,6 +494,8 @@ function OnboardForm() {
                 label="State"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                value="TN"
+                disabled={false}
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
@@ -495,6 +504,8 @@ function OnboardForm() {
                 label="Zip Code"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                value="37902"
+                disabled={false}
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
@@ -503,6 +514,8 @@ function OnboardForm() {
                 label="Telephone"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                value="(877) 355-4141"
+                disabled={false}
               />
             </Grid>
           </Grid>
@@ -513,12 +526,13 @@ function OnboardForm() {
             <Grid item xs={12 / 4} display={"flex"} columnGap={"20px"}>
               <CustomCheckBox
                 inputProps={{ "aria-label": "controlled" }}
+                checked={true}
                 // checked={
                 //   values?.roleAccess?.find(
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -551,7 +565,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -584,7 +598,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -617,7 +631,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -652,7 +666,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -687,7 +701,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -722,7 +736,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -764,7 +778,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -792,12 +806,13 @@ function OnboardForm() {
               />
               <CustomCheckBox
                 inputProps={{ "aria-label": "controlled" }}
+                checked={true}
                 // checked={
                 //   values?.roleAccess?.find(
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -833,7 +848,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -861,12 +876,13 @@ function OnboardForm() {
               />
               <CustomCheckBox
                 inputProps={{ "aria-label": "controlled" }}
+                checked={true}
                 // checked={
                 //   values?.roleAccess?.find(
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -900,6 +916,8 @@ function OnboardForm() {
                 label="Place"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                isViewMode={false}
+                value="TN"
               />
             </Grid>
             <Grid item xs={2}>
@@ -911,7 +929,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -939,12 +957,13 @@ function OnboardForm() {
               />
               <CustomCheckBox
                 inputProps={{ "aria-label": "controlled" }}
+                checked={true}
                 // checked={
                 //   values?.roleAccess?.find(
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -980,6 +999,8 @@ function OnboardForm() {
                 label="Claim code"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
+                value="10d Claim codes"
               />
             </Grid>
           </Grid>
@@ -1004,6 +1025,7 @@ function OnboardForm() {
                 label="Sign"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
               />
             </Grid>
             <Grid item xs={4} paddingLeft={2}>
@@ -1014,7 +1036,7 @@ function OnboardForm() {
                 // required
                 label={"Date"}
                 name={"scheduleDate"}
-                // isViewMode={expiredTime() || isViewMode}
+                isViewMode={false}
                 minDate={new Date()}
                 fullWidth
                 // value={values.scheduleDate}
@@ -1040,6 +1062,7 @@ function OnboardForm() {
               value="A456789"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
+              isViewMode={false}
             />
           </Grid>
           <Grid item container xs={12}>
@@ -1050,18 +1073,20 @@ function OnboardForm() {
               <TextFeildComp
                 type="text"
                 label="Last Name"
-                value="David"
+                value="Salemy"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
               />
             </Grid>
             <Grid item xs={4} padding={1}>
               <TextFeildComp
                 type="text"
                 label="First Name"
-                value="George"
+                value="Cheryl"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
               />
             </Grid>
             <Grid item xs={4} padding={1}>
@@ -1070,6 +1095,8 @@ function OnboardForm() {
                 label="Middle Name"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
+                value="A"
               />
             </Grid>
           </Grid>
@@ -1084,6 +1111,8 @@ function OnboardForm() {
                 label="No street"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                value="500 West Summit Hill Drive"
+                disabled={false}
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
@@ -1092,6 +1121,8 @@ function OnboardForm() {
                 label="City"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                value="Knoxville"
+                disabled={false}
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
@@ -1100,6 +1131,8 @@ function OnboardForm() {
                 label="State"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                value="TN"
+                disabled={false}
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
@@ -1108,6 +1141,8 @@ function OnboardForm() {
                 label="Zip Code"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                value="37902"
+                disabled={false}
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
@@ -1116,6 +1151,8 @@ function OnboardForm() {
                 label="Telephone"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                value="(877) 355-4141"
+                disabled={false}
               />
             </Grid>
           </Grid>
@@ -1131,6 +1168,8 @@ function OnboardForm() {
                 label="Last Name"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
+                value="Salemy,"
               />
             </Grid>
             <Grid item xs={4} padding={1}>
@@ -1139,6 +1178,8 @@ function OnboardForm() {
                 label="First Name"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
+                value="Susan"
               />
             </Grid>
             <Grid item xs={4} padding={1}>
@@ -1147,6 +1188,8 @@ function OnboardForm() {
                 label="Middle Name"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
+                value="J"
               />
             </Grid>
           </Grid>
@@ -1160,6 +1203,8 @@ function OnboardForm() {
                 label="Policy Number"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                value="OtherPolicy1234567"
+                disabled={false}
               />
             </Grid>
             <Grid item xs={4}>
@@ -1171,6 +1216,8 @@ function OnboardForm() {
                 label="Nucc use"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                value="9c reserved for NUCC Use"
+                disabled={false}
               />
             </Grid>
             <Grid item xs={4} marginBottom={2}>
@@ -1182,6 +1229,8 @@ function OnboardForm() {
                 label="Nucc use"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                value="9c reserved for NUCC Use"
+                disabled={false}
               />
             </Grid>
             <Grid item xs={3.5}>
@@ -1193,6 +1242,8 @@ function OnboardForm() {
                 label="Name"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
+                value="9d Ins Plan Name or Programe Name"
               />
             </Grid>
             <Grid item xs={4}>
@@ -1204,6 +1255,8 @@ function OnboardForm() {
                 label="FECA number"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                value="Policy 123456"
+                disabled={false}
               />
             </Grid>
             <Grid item xs={4}>
@@ -1217,8 +1270,8 @@ function OnboardForm() {
                 // required
                 label={"Date of birth"}
                 name={"scheduleDate"}
-                // isViewMode={expiredTime() || isViewMode}
-                minDate={new Date()}
+                isViewMode={false}
+                minDate={new Date("16/06/1966")}
                 fullWidth
                 // value={values.scheduleDate}
                 // touched={touched}
@@ -1237,6 +1290,8 @@ function OnboardForm() {
                 label="Claim Id"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                value="11b other claim Id"
+                disabled={false}
               />
             </Grid>
 
@@ -1249,18 +1304,21 @@ function OnboardForm() {
                 label="Name"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
+                value="11c"
               />
             </Grid>
             <Grid item xs={4}>
               <Label>Is There Another Health Benifit Plan?</Label>
               <CustomCheckBox
                 inputProps={{ "aria-label": "controlled" }}
+                checked={true}
                 // checked={
                 //   values?.roleAccess?.find(
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -1293,7 +1351,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -1330,13 +1388,13 @@ function OnboardForm() {
                   { id: 2, name: "Female", value: "Female" },
                 ]}
                 style={{ flexDirection: "row", marginTop: 1 }}
-                // value={values.campaignTypeId}
+                value={2}
                 // onChange={(e) => {
                 //   setFieldValue("campaignTypeId", e.target.value);
                 //   setFieldValue("campaignFile", "");
                 //   setFieldValue("campaignFileName", "");
                 // }}
-                // disabled={isViewMode}
+                disabled={false}
                 // errors={errors}
                 // touched={touched}
               />
@@ -1359,6 +1417,7 @@ function OnboardForm() {
                 label="Sign"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
               />
             </Grid>
           </Grid>
@@ -1375,8 +1434,8 @@ function OnboardForm() {
                 // required
                 label={"Date"}
                 name={"scheduleDate"}
-                // isViewMode={expiredTime() || isViewMode}
-                minDate={new Date()}
+                isViewMode={false}
+                minDate={new Date("10/09/1994")}
                 fullWidth
                 // value={values.scheduleDate}
                 // touched={touched}
@@ -1390,6 +1449,8 @@ function OnboardForm() {
                 label="Qual"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
+                value="122345"
               />
             </Grid>
           </Grid>
@@ -1403,8 +1464,8 @@ function OnboardForm() {
                 // required
                 label={"Date"}
                 name={"scheduleDate"}
-                // isViewMode={expiredTime() || isViewMode}
-                minDate={new Date()}
+                isViewMode={false}
+                minDate={new Date("08/08/1994")}
                 fullWidth
                 // value={values.scheduleDate}
                 // touched={touched}
@@ -1418,6 +1479,8 @@ function OnboardForm() {
                 label="Qual"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
+                value="QL"
               />
             </Grid>
           </Grid>
@@ -1433,8 +1496,8 @@ function OnboardForm() {
                 // required
                 label={"From"}
                 name={"scheduleDate"}
-                // isViewMode={expiredTime() || isViewMode}
-                minDate={new Date()}
+                isViewMode={false}
+                minDate={new Date("09/09/1996")}
                 fullWidth
                 // value={values.scheduleDate}
                 // touched={touched}
@@ -1450,8 +1513,8 @@ function OnboardForm() {
                 // required
                 label={"To"}
                 name={"scheduleDate"}
-                // isViewMode={expiredTime() || isViewMode}
-                minDate={new Date()}
+                isViewMode={false}
+                minDate={new Date("14/09/1996")}
                 fullWidth
                 // value={values.scheduleDate}
                 // touched={touched}
@@ -1471,6 +1534,8 @@ function OnboardForm() {
                 label="A"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                value="21-02215464"
+                disabled={false}
               />
             </Grid>
             <Grid item xs={5} paddingLeft={2}>
@@ -1479,6 +1544,8 @@ function OnboardForm() {
                 label="B"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                value="25-1987531"
+                disabled={false}
               />
             </Grid>
           </Grid>
@@ -1494,8 +1561,8 @@ function OnboardForm() {
                 // required
                 label={"From"}
                 name={"scheduleDate"}
-                // isViewMode={expiredTime() || isViewMode}
-                minDate={new Date()}
+                isViewMode={false}
+                minDate={new Date("10/10/2000")}
                 fullWidth
                 // value={values.scheduleDate}
                 // touched={touched}
@@ -1511,8 +1578,8 @@ function OnboardForm() {
                 // required
                 label={"To"}
                 name={"scheduleDate"}
-                // isViewMode={expiredTime() || isViewMode}
-                minDate={new Date()}
+                isViewMode={false}
+                minDate={new Date("10/10/2000")}
                 fullWidth
                 // value={values.scheduleDate}
                 // touched={touched}
@@ -1529,6 +1596,8 @@ function OnboardForm() {
               label="Claim Information"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
+              isViewMode={false}
+              value="aditional value"
             />
           </Grid>
           {/* <Grid item xs="7"></Grid> */}
@@ -1537,12 +1606,13 @@ function OnboardForm() {
             <Box sx={{ display: "flex", columnGap: "10px" }}>
               <CustomCheckBox
                 inputProps={{ "aria-label": "controlled" }}
+                checked={true}
                 // checked={
                 //   values?.roleAccess?.find(
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -1575,7 +1645,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -1610,6 +1680,8 @@ function OnboardForm() {
               label="Charges"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
+              isViewMode={false}
+              value="1000.00"
             />
           </Grid>
           <Grid Item container paddingLeft={2} xs={12} marginTop={2}>
@@ -1626,6 +1698,8 @@ function OnboardForm() {
                 label="A"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
+                value="a525.00"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2}>
@@ -1634,6 +1708,8 @@ function OnboardForm() {
                 label="B"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
+                value="b525.00"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2}>
@@ -1642,6 +1718,8 @@ function OnboardForm() {
                 label="C"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
+                value="c525.10"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2}>
@@ -1650,6 +1728,8 @@ function OnboardForm() {
                 label="D"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
+                value="d545.10"
               />
             </Grid>
             <Grid item xs={3} paddingTop={2}>
@@ -1658,6 +1738,8 @@ function OnboardForm() {
                 label="E"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
+                value="e522.20"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
@@ -1666,6 +1748,8 @@ function OnboardForm() {
                 label="F"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
+                value="f524.30"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
@@ -1674,6 +1758,8 @@ function OnboardForm() {
                 label="G"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
+                value="g454.65"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
@@ -1682,6 +1768,7 @@ function OnboardForm() {
                 label="H"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
               />
             </Grid>
             <Grid item xs={3} paddingTop={2}>
@@ -1690,6 +1777,8 @@ function OnboardForm() {
                 label="I"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
+                value="i345.78"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
@@ -1698,6 +1787,8 @@ function OnboardForm() {
                 label="J"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
+                value="j564.89"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
@@ -1706,6 +1797,8 @@ function OnboardForm() {
                 label="K"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
+                value="k675.98"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
@@ -1714,6 +1807,8 @@ function OnboardForm() {
                 label="L"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
+                value="456.78"
               />
             </Grid>
           </Grid>
@@ -1725,6 +1820,8 @@ function OnboardForm() {
                 label="Code"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
+                value="ABC123"
               />
             </Grid>
           </Grid>
@@ -1736,6 +1833,8 @@ function OnboardForm() {
                 label="Ref No"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
+                value="originalInfo1234"
               />
             </Grid>
           </Grid>
@@ -1749,6 +1848,8 @@ function OnboardForm() {
               label="Authorization Number"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
+              isViewMode={false}
+              value="7546987657"
             />
           </Grid>
           <Grid item xs={8}></Grid>
@@ -1761,6 +1862,8 @@ function OnboardForm() {
               label="Id Number"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
+              isViewMode={false}
+              value="574898765"
             />
           </Grid>
           <Grid item xs={4}>
@@ -1769,6 +1872,7 @@ function OnboardForm() {
               label="SSN"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
+              isViewMode={false}
             />
           </Grid>
           <Grid item xs={4}>
@@ -1777,6 +1881,7 @@ function OnboardForm() {
               label="EIN"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
+              isViewMode={false}
             />
           </Grid>
           <Grid item xs={4}>
@@ -1786,6 +1891,8 @@ function OnboardForm() {
               label="Account Number"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
+              isViewMode={false}
+              value="768443096"
             />
           </Grid>
           <Grid item xs={8}>
@@ -1793,12 +1900,13 @@ function OnboardForm() {
             <Box display={"flex"} columnGap={2}>
               <CustomCheckBox
                 inputProps={{ "aria-label": "controlled" }}
+                checked={true}
                 // checked={
                 //   values?.roleAccess?.find(
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -1831,7 +1939,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                // isViewMode={isViewMode}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -1866,6 +1974,8 @@ function OnboardForm() {
               label="Total Charge"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
+              disabled={false}
+              value="396.00"
             />
           </Grid>
           <Grid item xs={4}>
@@ -1875,6 +1985,8 @@ function OnboardForm() {
               label="Amount Paid"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
+              value="200"
+              disabled={false}
             />
           </Grid>
           <Grid item xs={4}>
@@ -1884,6 +1996,7 @@ function OnboardForm() {
               label="PlsVd"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
+              isViewMode={false}
             />
           </Grid>
           <Grid item xs={12}>
@@ -1892,509 +2005,663 @@ function OnboardForm() {
             </FormGroupHeader>
           </Grid>
           <Grid item xs={12}>
-            <TableStyle>
-              <thead>
-                <tr
-                  style={{
-                    marginBottom: "20px",
-                    borderBottom: "1px solid green",
-                  }}
-                >
-                  <th colSpan="2">A. Dates of service</th>
-                  <th colSpan="1">B.</th>
-                  <th colSpan="1">C.</th>
-                  <th colSpan="2">D. Procedure services or supplies</th>
-                  <th colSpan="1">E.</th>
-                  <th colSpan="1">F.</th>
-                  <th colSpan="1">G.</th>
-                  <th colSpan="1">H.</th>
-                  <th colSpan="1">I.</th>
-                  <th colSpan="1">J.</th>
-                </tr>
-                <tr
-                  style={{
-                    marginBottom: "20px",
-                    borderBottom: "1px solid green",
-                  }}
-                >
-                  <th colSpan="1">From</th>
-                  <th colSpan="1">To</th>
-                  <th></th>
-                  <th></th>
-                  <th colSpan="2">(Explain unusual Circumferance)</th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th>Rendering</th>
-                </tr>
-                <tr>
-                  <th>
-                    <span>MM</span>
-                    <span style={{ marginLeft: "5px" }}>DD</span>
-                    <span style={{ marginLeft: "5px" }}>YY</span>
-                  </th>
-                  <th>
-                    <span>MM</span>
-                    <span style={{ marginLeft: "5px" }}>DD</span>
-                    <span style={{ marginLeft: "5px" }}>YY</span>
-                  </th>
-                  <th>Diagnosis Pointer</th>
-                  <th>Emg</th>
-                  <th colSpan="1">CPT/HCPCS</th>
-                  <th colSpan="1">Modifier</th>
-                  <th> Diagnosis Pointer</th>
-                  <th> Charges </th>
-                  <th>Days Or Units</th>
-                  <th>Deposity Fertility plan</th>
-                  <th>ID Qual</th>
-                  <th>Provider ID</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+            <Grid item xs={12}>
+              <TableStyle>
+                <thead>
+                  <tr
+                    style={{
+                      marginBottom: "20px",
+                      borderBottom: "1px solid green",
+                    }}
+                  >
+                    <th colSpan="2">A. Dates of service</th>
+                    <th colSpan="1">B.</th>
+                    <th colSpan="1">C.</th>
+                    <th colSpan="2">D. Procedure services or supplies</th>
+                    <th colSpan="1">E.</th>
+                    <th colSpan="1">F.</th>
+                    <th colSpan="1">G.</th>
+                    <th colSpan="1">H.</th>
+                    <th colSpan="1">I.</th>
+                    <th colSpan="1">J.</th>
+                  </tr>
+                  <tr
+                    style={{
+                      marginBottom: "20px",
+                      borderBottom: "1px solid green",
+                    }}
+                  >
+                    <th colSpan="1">From</th>
+                    <th colSpan="1">To</th>
+                    <th></th>
+                    <th></th>
+                    <th colSpan="2">(Explain unusual Circumferance)</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>Rendering</th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <span>MM</span>
+                      <span style={{ marginLeft: "5px" }}>DD</span>
+                      <span style={{ marginLeft: "5px" }}>YY</span>
+                    </th>
+                    <th>
+                      <span>MM</span>
+                      <span style={{ marginLeft: "5px" }}>DD</span>
+                      <span style={{ marginLeft: "5px" }}>YY</span>
+                    </th>
+                    <th>Diagnosis Pointer</th>
+                    <th>Emg</th>
+                    <th colSpan="1">CPT/HCPCS</th>
+                    <th colSpan="1">Modifier</th>
+                    <th> Diagnosis Pointer</th>
+                    <th> Charges </th>
+                    <th>Days Or Units</th>
+                    <th>Deposity Fertility plan</th>
+                    <th>ID Qual</th>
+                    <th>Provider ID</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          02
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          10
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          17
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          02
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          10
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          17
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          21
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
-                        style={{ backgroundColor: "#005061", color: "#fff" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          1c
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        90658
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
-                        style={{ backgroundColor: "#005061", color: "#fff" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                          style={{ backgroundColor: "#005061", color: "#fff" }}
+                        >
+                          90658
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          01
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          02
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          03
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          04
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        E11.9
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                          style={{ backgroundColor: "#005061", color: "#fff" }}
+                        >
+                          E11.9
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          125
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          1
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <div>NPI</div>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          H
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <div>NPI</div>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          25.198765
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          02
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          10
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          17
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          02
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          10
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          17
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
-                        style={{ backgroundColor: "#005061", color: "#fff" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          21
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        92716
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
-                        style={{ backgroundColor: "#005061", color: "#fff" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          2c
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        I10
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                          style={{ backgroundColor: "#005061", color: "#fff" }}
+                        >
+                          45367
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          21
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          22
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          23
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          24
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                          style={{ backgroundColor: "#005061", color: "#fff" }}
+                        >
+                          I10
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          100
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <div>NPI</div>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          2
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          H
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <div>NPI</div>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          25.214355
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          02
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          10
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          17
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          25
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          12
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          93
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          17
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          67
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          45
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          13
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          13
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          24
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          16
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          24
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <div>NPI</div>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          35
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          11
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          23
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <div>NPI</div>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex" }}>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                      <SmallEditableComp contentEditable>07</SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          11
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          45
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          22
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          45
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          12
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          67
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          45
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          33
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          33
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          23
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div style={{ display: "flex" }}>
+                        <SmallEditableComp contentEditable>
+                          12
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          34
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          67
+                        </SmallEditableComp>
+                        <SmallEditableComp contentEditable>
+                          34
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <div>NPI</div>
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <SmallEditableComp
-                        contentEditable
-                        theme={{ width: "100%" }}
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          23
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
                       >
-                        07
-                      </SmallEditableComp>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </TableStyle>
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          34
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
+                      >
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          23
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
+                      >
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          45
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
+                      >
+                        <div>NPI</div>
+                      </div>
+                    </td>
+                    <td>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
+                      >
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                        >
+                          4556
+                        </SmallEditableComp>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </TableStyle>
+            </Grid>
           </Grid>
           <Grid item container xs={12}>
             <Grid item xs={12}>
@@ -2415,6 +2682,7 @@ function OnboardForm() {
                 label="Sign"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
               />
             </Grid>
             <Grid item xs={4} paddingLeft={2}>
@@ -2425,8 +2693,8 @@ function OnboardForm() {
                 // required
                 label={"Date of birth"}
                 name={"scheduleDate"}
-                // isViewMode={expiredTime() || isViewMode}
-                minDate={new Date()}
+                isViewMode={false}
+                minDate={new Date("2/28/2017")}
                 fullWidth
                 // value={values.scheduleDate}
                 // touched={touched}
@@ -2444,6 +2712,8 @@ function OnboardForm() {
                 label="A"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                value="ABC General Store"
+                disabled={false}
               />
             </Grid>
             <Grid item xs={4} paddingLeft={2}>
@@ -2452,6 +2722,7 @@ function OnboardForm() {
                 label="B"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                disabled={false}
               />
             </Grid>
           </Grid>
@@ -2465,6 +2736,8 @@ function OnboardForm() {
                 label="A"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                value="PlipSide"
+                disabled={false}
               />
             </Grid>
             <Grid item xs={4} paddingLeft={2}>
@@ -2473,6 +2746,8 @@ function OnboardForm() {
                 label="B"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
+                value="Po Box 3120843747"
+                disabled={false}
               />
             </Grid>
           </Grid>

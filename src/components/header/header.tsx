@@ -45,7 +45,7 @@ export default function PageHeader() {
             className={splitLocation[1] === "coding-validation" ? "active" : ""}
           >
             <Link to={"/coding-validation"}>
-              <Tooltip title="coding Validatation">
+              <Tooltip title="coding Validation">
                 <FactCheckOutlinedIcon />
               </Tooltip>
             </Link>

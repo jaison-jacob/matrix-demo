@@ -16,23 +16,38 @@ const ReactPdfViewer = (props) => {
   };
 
   const onDocumentLoadSuccess = ({ numPages }) => {
+    console.log("on Docu,ent call");
     setNumPages(numPages);
   };
   return (
-    <Box sx={{ height: "calc(100vh - 100px)", overflowY: "auto" }}>
-      <h2>PDF Viewer</h2>
+    <Box
+      sx={{
+        padding: "30px 50px",
+        backgroundColor: "#dedede",
+        marginTop: "0px",
+        overflowY: "auto",
+        height: "calc(100vh - 30px)",
+        // marginBottom: "200px",
+      }}
+    >
+      {/* <h2>PDF Viewer</h2> */}
+      <p style={{ marginBottom: "20px" }}>
+        Page {pageNumber} of {numPages}
+      </p>
       <Document
         file={file}
         onLoadSuccess={onDocumentLoadSuccess}
         onLoadError={onFileLoadError}
+        className="custom-class-name-1 custom-class-name-2"
         renderTextLayer={false}
         renderAnnotationLayer={false}
       >
-        <Page pageNumber={pageNumber} />
+        {Array.apply(null, Array(numPages))
+          .map((x, i) => i + 1)
+          .map((page) => {
+            return <Page pageNumber={page} />;
+          })}
       </Document>
-      <p>
-        Page {pageNumber} of {numPages}
-      </p>
     </Box>
   );
 };
