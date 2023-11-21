@@ -1,4 +1,13 @@
-import { Box, Button, Grid, Paper, Tooltip, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Grid,
+  IconButton,
+  Modal,
+  Paper,
+  Tooltip,
+  Typography,
+} from "@mui/material";
 import TextFeildComp from "../components/shared/TextFeildComp";
 import styled from "styled-components";
 import CustomCheckBox from "../components/shared/CustomCheckBox";
@@ -9,6 +18,10 @@ import { FlexContainer } from "../components/styled-components/Global.styled";
 import Preview from "../components/Preview/Preview";
 import { useState } from "react";
 import ReactPdfViewer from "../components/pdfViewer/ReactPdfViewer";
+import { VersionContainer, CloseIconContainer } from "../styles/modalStyle";
+import CloseIcon from "@mui/icons-material/Close";
+import CustomDrawer from "../components/shared/CustomDrawer";
+import ManageHistoryIcon from "@mui/icons-material/ManageHistory";
 // import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
 
 export const DateBirth = styled("div")(() => ({
@@ -82,7 +95,31 @@ function OnboardForm() {
   //   { uri: cms1500Form }, // Local File
   // ];'
   const [showPreview, setShowPreview] = useState(false);
+  const [anchor, setAnchor] = useState(false);
   const pdfUrl = "../assets/form-cms1500.pdf";
+
+  const handleClose = () => {
+    setShowPreview(false);
+  };
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    debugger;
+    if (
+      event &&
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setAnchor({ ...anchor, right: open });
+  };
+
+  const toggle = (val) => {
+    console.log("ljewoijw");
+    setAnchor(val);
+  };
+
   return (
     <Paper
       sx={{
@@ -394,7 +431,7 @@ function OnboardForm() {
               <TextFeildComp
                 type="text"
                 label="Last Name"
-                value="Davis"
+                value="Salemy"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
@@ -404,7 +441,7 @@ function OnboardForm() {
               <TextFeildComp
                 type="text"
                 label="First Name"
-                value="Christine"
+                value="Cheryl"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
@@ -414,6 +451,7 @@ function OnboardForm() {
               <TextFeildComp
                 type="text"
                 label="Middle Name"
+                value="A"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
@@ -432,7 +470,7 @@ function OnboardForm() {
                 // required
                 label={"Date of birth"}
                 name={"scheduleDate"}
-                value={new Date("10/11/1993")}
+                value={new Date("10/16/1966")}
                 isViewMode={true}
                 // minDate={new Date()}
                 fullWidth
@@ -456,7 +494,7 @@ function OnboardForm() {
                   { id: 2, name: "Female", value: "Female" },
                 ]}
                 style={{ flexDirection: "row", marginTop: 0 }}
-                value={1}
+                value={2}
                 // defaultValue={"1"}
                 // onChange={(e) => {
                 //   setFieldValue("campaignTypeId", e.target.value);
@@ -480,7 +518,7 @@ function OnboardForm() {
                 label="No street"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                value="1 Beverly Drive E6"
+                value="500 West Summit Hill Drive"
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
@@ -489,7 +527,7 @@ function OnboardForm() {
                 label="City"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                value="abington"
+                value="Knoxville"
                 disabled={true}
               />
             </Grid>
@@ -499,7 +537,7 @@ function OnboardForm() {
                 label="State"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                value="PA"
+                value="TN"
                 disabled={true}
               />
             </Grid>
@@ -509,7 +547,7 @@ function OnboardForm() {
                 label="Zip Code"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                value="14219"
+                value="37902"
                 disabled={true}
               />
             </Grid>
@@ -519,7 +557,7 @@ function OnboardForm() {
                 label="Telephone"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                value="(218) 8173931"
+                value="(877) 355-4141"
                 disabled={true}
               />
             </Grid>
@@ -922,6 +960,7 @@ function OnboardForm() {
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 isViewMode={true}
+                value="TN"
               />
             </Grid>
             <Grid item xs={2}>
@@ -1004,6 +1043,7 @@ function OnboardForm() {
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
+                value="10d Claim codes"
               />
             </Grid>
           </Grid>
@@ -1076,7 +1116,7 @@ function OnboardForm() {
               <TextFeildComp
                 type="text"
                 label="Last Name"
-                value="David"
+                value="Salemy"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
@@ -1086,7 +1126,7 @@ function OnboardForm() {
               <TextFeildComp
                 type="text"
                 label="First Name"
-                value="George"
+                value="Cheryl"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
@@ -1099,6 +1139,7 @@ function OnboardForm() {
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
+                value="A"
               />
             </Grid>
           </Grid>
@@ -1113,7 +1154,7 @@ function OnboardForm() {
                 label="No street"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                value="1 Beverly Drive E6"
+                value="500 West Summit Hill Drive"
                 disabled={true}
               />
             </Grid>
@@ -1123,7 +1164,7 @@ function OnboardForm() {
                 label="City"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                value="Abington"
+                value="Knoxville"
                 disabled={true}
               />
             </Grid>
@@ -1133,7 +1174,7 @@ function OnboardForm() {
                 label="State"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                value="PA"
+                value="TN"
                 disabled={true}
               />
             </Grid>
@@ -1143,7 +1184,7 @@ function OnboardForm() {
                 label="Zip Code"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                value="14219"
+                value="37902"
                 disabled={true}
               />
             </Grid>
@@ -1153,7 +1194,7 @@ function OnboardForm() {
                 label="Telephone"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                value="(219) 8173931"
+                value="(877) 355-4141"
                 disabled={true}
               />
             </Grid>
@@ -1171,6 +1212,7 @@ function OnboardForm() {
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
+                value="Salemy,"
               />
             </Grid>
             <Grid item xs={4} padding={1}>
@@ -1180,6 +1222,7 @@ function OnboardForm() {
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
+                value="Susan"
               />
             </Grid>
             <Grid item xs={4} padding={1}>
@@ -1189,6 +1232,7 @@ function OnboardForm() {
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
+                value="J"
               />
             </Grid>
           </Grid>
@@ -1202,7 +1246,7 @@ function OnboardForm() {
                 label="Policy Number"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                value="54372"
+                value="OtherPolicy1234567"
                 disabled={true}
               />
             </Grid>
@@ -1215,7 +1259,7 @@ function OnboardForm() {
                 label="Nucc use"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                value="98768743"
+                value="9c reserved for NUCC Use"
                 disabled={true}
               />
             </Grid>
@@ -1228,7 +1272,7 @@ function OnboardForm() {
                 label="Nucc use"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                value="687332"
+                value="9c reserved for NUCC Use"
                 disabled={true}
               />
             </Grid>
@@ -1242,6 +1286,7 @@ function OnboardForm() {
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
+                value="9d Ins Plan Name or Programe Name"
               />
             </Grid>
             <Grid item xs={4}>
@@ -1253,7 +1298,7 @@ function OnboardForm() {
                 label="FECA number"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                value="765237653276"
+                value="Policy 123456"
                 disabled={true}
               />
             </Grid>
@@ -1269,7 +1314,7 @@ function OnboardForm() {
                 label={"Date of birth"}
                 name={"scheduleDate"}
                 isViewMode={true}
-                minDate={new Date("27/08/1994")}
+                minDate={new Date("16/06/1966")}
                 fullWidth
                 // value={values.scheduleDate}
                 // touched={touched}
@@ -1288,7 +1333,7 @@ function OnboardForm() {
                 label="Claim Id"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                value="98379"
+                value="11b other claim Id"
                 disabled={true}
               />
             </Grid>
@@ -1303,6 +1348,7 @@ function OnboardForm() {
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
+                value="11c"
               />
             </Grid>
             <Grid item xs={4}>
@@ -1385,7 +1431,7 @@ function OnboardForm() {
                   { id: 2, name: "Female", value: "Female" },
                 ]}
                 style={{ flexDirection: "row", marginTop: 1 }}
-                value={1}
+                value={2}
                 // onChange={(e) => {
                 //   setFieldValue("campaignTypeId", e.target.value);
                 //   setFieldValue("campaignFile", "");
@@ -1447,6 +1493,7 @@ function OnboardForm() {
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
+                value="122345"
               />
             </Grid>
           </Grid>
@@ -1476,6 +1523,7 @@ function OnboardForm() {
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
+                value="QL"
               />
             </Grid>
           </Grid>
@@ -1529,7 +1577,7 @@ function OnboardForm() {
                 label="A"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                value="DN"
+                value="21-02215464"
                 disabled={true}
               />
             </Grid>
@@ -1539,7 +1587,7 @@ function OnboardForm() {
                 label="B"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                value="DR Mark Jenkins"
+                value="25-1987531"
                 disabled={true}
               />
             </Grid>
@@ -1592,6 +1640,7 @@ function OnboardForm() {
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
               isViewMode={true}
+              value="aditional value"
             />
           </Grid>
           {/* <Grid item xs="7"></Grid> */}
@@ -1675,6 +1724,7 @@ function OnboardForm() {
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
               isViewMode={true}
+              value="1000.00"
             />
           </Grid>
           <Grid Item container paddingLeft={2} xs={12} marginTop={2}>
@@ -1692,6 +1742,7 @@ function OnboardForm() {
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
+                value="a525.00"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2}>
@@ -1701,6 +1752,7 @@ function OnboardForm() {
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
+                value="b525.00"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2}>
@@ -1710,6 +1762,7 @@ function OnboardForm() {
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
+                value="c525.10"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2}>
@@ -1719,6 +1772,7 @@ function OnboardForm() {
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
+                value="d545.10"
               />
             </Grid>
             <Grid item xs={3} paddingTop={2}>
@@ -1728,6 +1782,7 @@ function OnboardForm() {
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
+                value="e522.20"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
@@ -1737,6 +1792,7 @@ function OnboardForm() {
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
+                value="f524.30"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
@@ -1746,6 +1802,7 @@ function OnboardForm() {
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
+                value="g454.65"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
@@ -1764,6 +1821,7 @@ function OnboardForm() {
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
+                value="i345.78"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
@@ -1773,6 +1831,7 @@ function OnboardForm() {
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
+                value="j564.89"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
@@ -1782,6 +1841,7 @@ function OnboardForm() {
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
+                value="k675.98"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
@@ -1791,6 +1851,7 @@ function OnboardForm() {
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
+                value="456.78"
               />
             </Grid>
           </Grid>
@@ -1803,6 +1864,7 @@ function OnboardForm() {
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
+                value="ABC123"
               />
             </Grid>
           </Grid>
@@ -1815,6 +1877,7 @@ function OnboardForm() {
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 disabled={true}
+                value="originalInfo1234"
               />
             </Grid>
           </Grid>
@@ -1829,6 +1892,7 @@ function OnboardForm() {
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
               isViewMode={true}
+              value="7546987657"
             />
           </Grid>
           <Grid item xs={8}></Grid>
@@ -1842,6 +1906,7 @@ function OnboardForm() {
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
               isViewMode={true}
+              value="574898765"
             />
           </Grid>
           <Grid item xs={4}>
@@ -1870,6 +1935,7 @@ function OnboardForm() {
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
               isViewMode={true}
+              value="768443096"
             />
           </Grid>
           <Grid item xs={8}>
@@ -1951,8 +2017,8 @@ function OnboardForm() {
               label="Total Charge"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
-              value="64"
               disabled={true}
+              value="396.00"
             />
           </Grid>
           <Grid item xs={4}>
@@ -1962,7 +2028,7 @@ function OnboardForm() {
               label="Amount Paid"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
-              value="50"
+              value="200"
               disabled={true}
             />
           </Grid>
@@ -2048,26 +2114,26 @@ function OnboardForm() {
                     <td>
                       <div style={{ display: "flex" }}>
                         <SmallEditableComp contentEditable>
-                          07
+                          02
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          10
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          17
                         </SmallEditableComp>
                       </div>
                     </td>
                     <td>
                       <div style={{ display: "flex" }}>
                         <SmallEditableComp contentEditable>
-                          07
+                          02
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          10
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          17
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2079,7 +2145,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          21
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2091,7 +2157,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          1c
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2099,30 +2165,44 @@ function OnboardForm() {
                       <div
                         style={{ display: "flex", justifyContent: "center" }}
                       >
-                        <Tooltip title="old value: 90658">
-                          <SmallEditableComp
-                            contentEditable
-                            theme={{ width: "100%" }}
-                            style={{ backgroundColor: "red", color: "#fff" }}
-                          >
-                            87635
-                          </SmallEditableComp>
-                        </Tooltip>
+                        <SmallEditableComp
+                          contentEditable
+                          theme={{ width: "100%" }}
+                          style={{
+                            backgroundColor: "red",
+                            color: "#fff",
+                            display: "flex",
+                            alignItems: "center",
+                            columnGap: "3px",
+                          }}
+                        >
+                          87635
+                          <Tooltip title="View History">
+                            <ManageHistoryIcon
+                              style={{
+                                cursor: "pointer",
+                                fontSize: "16px",
+                                width: "16px",
+                              }}
+                              onClick={() => toggle(true)}
+                            />
+                          </Tooltip>
+                        </SmallEditableComp>
                       </div>
                     </td>
                     <td>
                       <div style={{ display: "flex" }}>
                         <SmallEditableComp contentEditable>
-                          07
+                          01
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          02
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          03
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          04
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2147,7 +2227,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          125
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2159,7 +2239,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          1
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2171,7 +2251,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          H
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2190,7 +2270,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          25.198765
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2199,26 +2279,26 @@ function OnboardForm() {
                     <td>
                       <div style={{ display: "flex" }}>
                         <SmallEditableComp contentEditable>
-                          07
+                          02
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          10
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          17
                         </SmallEditableComp>
                       </div>
                     </td>
                     <td>
                       <div style={{ display: "flex" }}>
                         <SmallEditableComp contentEditable>
-                          07
+                          02
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          10
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          17
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2230,7 +2310,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          21
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2242,7 +2322,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          2c
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2255,23 +2335,23 @@ function OnboardForm() {
                           theme={{ width: "100%" }}
                           style={{ backgroundColor: "#005061", color: "#fff" }}
                         >
-                          92716
+                          45367
                         </SmallEditableComp>
                       </div>
                     </td>
                     <td>
                       <div style={{ display: "flex" }}>
                         <SmallEditableComp contentEditable>
-                          07
+                          21
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          22
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          23
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          24
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2296,7 +2376,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          100
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2308,7 +2388,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          2
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2320,7 +2400,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          H
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2339,7 +2419,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          25.214355
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2348,26 +2428,26 @@ function OnboardForm() {
                     <td>
                       <div style={{ display: "flex" }}>
                         <SmallEditableComp contentEditable>
-                          07
+                          02
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          10
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          17
                         </SmallEditableComp>
                       </div>
                     </td>
                     <td>
                       <div style={{ display: "flex" }}>
                         <SmallEditableComp contentEditable>
-                          07
+                          25
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          12
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          93
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2379,7 +2459,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          17
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2391,7 +2471,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          67
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2403,23 +2483,23 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          45
                         </SmallEditableComp>
                       </div>
                     </td>
                     <td>
                       <div style={{ display: "flex" }}>
                         <SmallEditableComp contentEditable>
-                          07
+                          13
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          13
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          24
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          16
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2431,7 +2511,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          24
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2443,7 +2523,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          35
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2455,7 +2535,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          11
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2467,7 +2547,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          23
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2486,7 +2566,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          11
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2495,26 +2575,26 @@ function OnboardForm() {
                     <td>
                       <div style={{ display: "flex" }}>
                         <SmallEditableComp contentEditable>
-                          07
+                          45
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          22
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          45
                         </SmallEditableComp>
                       </div>
                     </td>
                     <td>
                       <div style={{ display: "flex" }}>
                         <SmallEditableComp contentEditable>
-                          07
+                          12
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          67
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          45
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2526,7 +2606,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          33
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2538,7 +2618,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          33
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2550,23 +2630,23 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          23
                         </SmallEditableComp>
                       </div>
                     </td>
                     <td>
                       <div style={{ display: "flex" }}>
                         <SmallEditableComp contentEditable>
-                          07
+                          12
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          34
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          67
                         </SmallEditableComp>
                         <SmallEditableComp contentEditable>
-                          07
+                          34
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2578,7 +2658,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          23
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2590,7 +2670,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          34
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2602,7 +2682,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          23
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2614,7 +2694,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          45
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2633,7 +2713,7 @@ function OnboardForm() {
                           contentEditable
                           theme={{ width: "100%" }}
                         >
-                          07
+                          4556
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2673,7 +2753,7 @@ function OnboardForm() {
                 label={"Date of birth"}
                 name={"scheduleDate"}
                 isViewMode={true}
-                minDate={new Date()}
+                minDate={new Date("2/28/2017")}
                 fullWidth
                 // value={values.scheduleDate}
                 // touched={touched}
@@ -2732,8 +2812,27 @@ function OnboardForm() {
           </Grid>
         </Grid>
       </Box>
-      {}
-      {/* <ReactPdfViewer pdfUrl={pdfUrl} /> */}
+      <Modal open={showPreview} onClose={handleClose}>
+        <VersionContainer
+          style={{
+            overflow: "hidden",
+          }}
+        >
+          <CloseIconContainer>
+            <IconButton
+              onClick={() => {
+                handleClose();
+              }}
+            >
+              <CloseIcon />
+            </IconButton>
+          </CloseIconContainer>
+          <Box sx={{ width: "100%", margin: "0px auto" }}>
+            <ReactPdfViewer pdfUrl={pdfUrl} />
+          </Box>
+        </VersionContainer>
+      </Modal>
+
       <FlexContainer>
         <Button
           variant="outlined"
@@ -2748,9 +2847,19 @@ function OnboardForm() {
         <Button variant="contained" color="error">
           Reject
         </Button>
+        {/* <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => toggle(true)}
+          // drawerFun={toggleDrawer}
+        >
+          Drawer
+        </Button> */}
       </FlexContainer>
 
-      {showPreview && <Preview showPreview={() => setShowPreview(false)} />}
+      <CustomDrawer anchor={anchor} drawerFun={toggle}></CustomDrawer>
+
+      {/* {showPreview && <Preview showPreview={() => setShowPreview(false)} />} */}
     </Paper>
   );
 }
