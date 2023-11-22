@@ -4,9 +4,13 @@ import { StyleCustomTable } from "../../styles/CustomTable";
 
 export default function CustomTable(props) {
   const { headCells, boddyCells } = props.tableData;
-  console.log(headCells, boddyCells);
   return (
-    <div style={{ height: "calc(100vh - 130px)", width: "100%" }}>
+    <div
+      style={{
+        height: props.height ? props.height : "calc(100vh - 130px)",
+        width: "100%",
+      }}
+    >
       <StyleCustomTable
         rows={boddyCells}
         columns={headCells}

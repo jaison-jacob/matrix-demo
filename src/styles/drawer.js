@@ -91,8 +91,8 @@ const StyledListItem = styled(ListItem, {
 
 const StyledListIcon = styled(ListItemIcon, {
   shouldForwardProp: (prop) => prop !== "open",
-})(({ isSelected }) => ({
-  color: isSelected ? "#2080E8 !important" : "#DDDDE0 !important",
+})(({ isselected }) => ({
+  color: isselected ? "#2080E8 !important" : "#DDDDE0 !important",
   marginRight: "10px !important",
   ".css-i4bv87-MuiSvgIcon-root": {
     fontSize: "20px",
@@ -101,10 +101,9 @@ const StyledListIcon = styled(ListItemIcon, {
 
 const StyledListText = styled(ListItemText, {
   shouldForwardProp: (prop) => prop !== "open",
-})(({ isSelected }) => {
-  console.log("isSelected text", isSelected);
+})(({ isselected }) => {
   return {
-    color: isSelected ? "#2080E8" : "#DDDDE0",
+    color: isselected ? "#2080E8" : "#DDDDE0",
     ".css-10hburv-MuiTypography-root": {
       fontFamily: "Poppins",
       fontSize: "12px",

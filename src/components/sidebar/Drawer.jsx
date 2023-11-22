@@ -40,7 +40,7 @@ const DrawerComp = (props) => {
               }}
             >
               <StyledListIcon
-                isSelected={
+                isselected={
                   sidebarActionData.selectedPage.routeKey === item.routeKey
                 }
                 sx={{
@@ -53,7 +53,7 @@ const DrawerComp = (props) => {
               </StyledListIcon>
               <StyledListText
                 primary={item.label}
-                isSelected={
+                isselected={
                   sidebarActionData.selectedPage.routeKey === item.routeKey
                 }
                 sx={{

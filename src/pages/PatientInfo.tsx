@@ -393,60 +393,35 @@ export default function PatientInfo() {
 
         {Object.keys(patientInfo.medicalInfo).map((medicalInfo, i) => {
           return (
-            <div>
+            <div key={i}>
               <SizedBox height={40} />
               <StyledCardTiltle>{medicalInfo}</StyledCardTiltle>
-
-              {/* <table id="patientInfo">
-          <tr>
-            <th>Pdf</th>
-            <th>Date</th>
-            <th>Property info</th>
-          </tr>
-          <tr>
-            <td>PRMA_CHA_HOME_202345758.pdf</td>
-            <td>10/3/2023 10:17 PM</td>
-            <td>Microsoft Edge PDF 305 KB</td>
-          </tr>
-          <tr>
-            <td>PRMA_CHA_HOME_20457895758.pdf</td>
-            <td>10/3/2023 10:17 PM</td>
-            <td>Microsoft Edge PDF 315 KB</td>
-          </tr>
-          <tr>
-            <td>PRMA_CHA_HOME_20209765758.pdf</td>
-            <td>10/3/2023 10:17 PM</td>
-            <td>Microsoft Edge PDF 335 KB</td>
-          </tr>
-          <tr>
-            <td>PRMA_CHA_HOME_20278654558.pdf</td>
-            <td>10/3/2023 10:17 PM</td>
-            <td>Microsoft Edge PDF 345 KB</td>
-          </tr>
-        </table> */}
-
-              <table key={i} id="patientInfo" style={{ width: "400px" }}>
-                {/* <thead> */}
-                <tr>
-                  <th>Code</th>
-                  <th>Description</th>
-                </tr>
-                {/* </thead> */}
-                {/* <tbody> */}
-                {patientInfo.medicalInfo[medicalInfo].map((data, j) => {
-                  return (
-                    <tr key={j}>
-                      {Object.keys(data).map((key, k) => {
-                        return <td key={k}>{data[key]}</td>;
-                      })}
-                    </tr>
-                  );
-                })}
-                {/* </tbody> */}
+              <table id="patientInfo" style={{ width: "500px" }}>
+                <thead>
+                  <tr>
+                    <th>Code</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {patientInfo.medicalInfo[medicalInfo].map(
+                    (data: any, j: any) => {
+                      return (
+                        <tr key={j}>
+                          {Object.keys(data).map((key, k) => {
+                            console.log("data[key] ", data[key]);
+                            return <td key={k}>{data[key]}</td>;
+                          })}
+                        </tr>
+                      );
+                    }
+                  )}
+                </tbody>
               </table>
             </div>
           );
         })}
+
         <SizedBox height={40} />
         <StyledCardTiltle>Diagnosis Result</StyledCardTiltle>
         <CustomTextarea
@@ -464,36 +439,37 @@ export default function PatientInfo() {
         {/* <img src={"/diagnosis.jpg"} width={400} /> */}
         <SizedBox height={40} />
         <StyledCardTiltle>Documents</StyledCardTiltle>
-        {/* <div className="patient-list-image">
-          <img src={"/documents.png"} width={"100%"} />
-        </div> */}
 
         <table id="patientInfo">
-          <tr>
-            <th>Pdf</th>
-            <th>Date</th>
-            <th>Property info</th>
-          </tr>
-          <tr>
-            <td>PRMA_CHA_HOME_202345758.pdf</td>
-            <td>10/3/2023 10:17 PM</td>
-            <td>Microsoft Edge PDF 305 KB</td>
-          </tr>
-          <tr>
-            <td>PRMA_CHA_HOME_20457895758.pdf</td>
-            <td>10/3/2023 10:17 PM</td>
-            <td>Microsoft Edge PDF 315 KB</td>
-          </tr>
-          <tr>
-            <td>PRMA_CHA_HOME_20209765758.pdf</td>
-            <td>10/3/2023 10:17 PM</td>
-            <td>Microsoft Edge PDF 335 KB</td>
-          </tr>
-          <tr>
-            <td>PRMA_CHA_HOME_20278654558.pdf</td>
-            <td>10/3/2023 10:17 PM</td>
-            <td>Microsoft Edge PDF 345 KB</td>
-          </tr>
+          <thead>
+            <tr>
+              <th>Pdf</th>
+              <th>Date</th>
+              <th>Property info</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>PRMA_CHA_HOME_202345758.pdf</td>
+              <td>10/3/2023 10:17 PM</td>
+              <td>Microsoft Edge PDF 305 KB</td>
+            </tr>
+            <tr>
+              <td>PRMA_CHA_HOME_20457895758.pdf</td>
+              <td>10/3/2023 10:17 PM</td>
+              <td>Microsoft Edge PDF 315 KB</td>
+            </tr>
+            <tr>
+              <td>PRMA_CHA_HOME_20209765758.pdf</td>
+              <td>10/3/2023 10:17 PM</td>
+              <td>Microsoft Edge PDF 335 KB</td>
+            </tr>
+            <tr>
+              <td>PRMA_CHA_HOME_20278654558.pdf</td>
+              <td>10/3/2023 10:17 PM</td>
+              <td>Microsoft Edge PDF 345 KB</td>
+            </tr>
+          </tbody>
         </table>
 
         <SizedBox height={20} />

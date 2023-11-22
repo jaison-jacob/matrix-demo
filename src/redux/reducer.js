@@ -17,6 +17,16 @@ export const initialState = {
       password: "1234",
       role: "cod1",
     },
+    {
+      userName: "John Doe",
+      password: "12345",
+      role: "pat1",
+    },
+    {
+      userName: "James George",
+      password: "1234",
+      role: "cod1",
+    },
   ],
 };
 

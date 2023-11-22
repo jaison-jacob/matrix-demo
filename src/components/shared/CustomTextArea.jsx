@@ -7,11 +7,12 @@ export const StyledTextAreaFeildContainer = styled(TextField)(
     ".MuiFormLabel-root ": {
       color: "#757575 !important",
       fontFamily: "Poppins",
+      fontSize: "14px",
     },
     ".css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input": {
       color: "#757575 !important",
       fontFamily: "Poppins",
-      fontSize:"13px"
+      fontSize: "13px",
     },
     ".mui-focused": {
       color: "#757575",
@@ -22,6 +23,9 @@ export const StyledTextAreaFeildContainer = styled(TextField)(
     },
     ".MuiInputBase-root:after": {
       borderBottom: "2px solid grey !important",
+    },
+    ".css-8ewcdo-MuiInputBase-root-MuiOutlinedInput-root": {
+      padding: "14px",
     },
   })
 );
@@ -54,7 +58,7 @@ function CustomTextarea(props) {
   } = props;
 
   return (
-    <Box sx={{ marginTop: 3 }}>
+    <Box>
       <StyledTextAreaFeildContainer
         multiline
         maxRows={maxRows}
@@ -68,7 +72,7 @@ function CustomTextarea(props) {
         className={className}
         fullWidth={fullWidth || true}
         autoComplete={autoComplete}
-        // onChange={onChange}
+        onChange={onChange}
         onBlur={onBlur}
         // value={value || ""}
         endadornment={endAdornment}

@@ -1,27 +1,10 @@
-import {
-  Box,
-  Button,
-  Grid,
-  IconButton,
-  Modal,
-  Paper,
-  Tooltip,
-  Typography,
-} from "@mui/material";
-import TextFeildComp from "../components/shared/TextFeildComp";
+import { Box, Grid, Paper, Typography } from "@mui/material";
+import CustomTextField from "../components/shared/CustomTextField";
 import styled from "styled-components";
 import CustomCheckBox from "../components/shared/CustomCheckBox";
 import CustomRadio from "../components/shared/CustomRadio";
 import { CustomDatePicker } from "../components/shared/CustomDatePicker";
 import Breadcrumb from "../components/breadcrumb/breadcrumb";
-import { FlexContainer } from "../components/styled-components/Global.styled";
-import Preview from "../components/Preview/Preview";
-import { useState } from "react";
-import ReactPdfViewer from "../components/pdfViewer/ReactPdfViewer";
-import { VersionContainer, CloseIconContainer } from "../styles/modalStyle";
-import CloseIcon from "@mui/icons-material/Close";
-import CustomDrawer from "../components/shared/CustomDrawer";
-import ManageHistoryIcon from "@mui/icons-material/ManageHistory";
 // import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
 
 export const DateBirth = styled("div")(() => ({
@@ -90,36 +73,10 @@ export const TableStyle = styled("table")(() => ({
   },
 }));
 
-function OnboardForm() {
+function ClaimForm() {
   // const docs = [
   //   { uri: cms1500Form }, // Local File
-  // ];'
-  const [showPreview, setShowPreview] = useState(false);
-  const [anchor, setAnchor] = useState(false);
-  const pdfUrl = "../assets/form-cms1500.pdf";
-
-  const handleClose = () => {
-    setShowPreview(false);
-  };
-
-  const toggleDrawer = (anchor, open) => (event) => {
-    debugger;
-    if (
-      event &&
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
-
-    setAnchor({ ...anchor, right: open });
-  };
-
-  const toggle = (val) => {
-    console.log("ljewoijw");
-    setAnchor(val);
-  };
-
+  // ];
   return (
     <Paper
       sx={{
@@ -178,7 +135,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -214,7 +171,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -250,7 +207,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -286,7 +243,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -322,7 +279,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -358,7 +315,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -394,7 +351,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -428,33 +385,33 @@ function OnboardForm() {
               <Label style={{ marginBottom: "10px" }}>Patients Name</Label>
             </Grid>
             <Grid item xs={4} paddingY={1} paddingRight={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Last Name"
                 value="Salemy"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
             <Grid item xs={4} padding={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="First Name"
                 value="Cheryl"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
             <Grid item xs={4} padding={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Middle Name"
                 value="A"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
           </Grid>
@@ -471,7 +428,7 @@ function OnboardForm() {
                 label={"Date of birth"}
                 name={"scheduleDate"}
                 value={new Date("10/16/1966")}
-                isViewMode={true}
+                isViewMode={false}
                 // minDate={new Date()}
                 fullWidth
                 // value={values.scheduleDate}
@@ -501,7 +458,7 @@ function OnboardForm() {
                 //   setFieldValue("campaignFile", "");
                 //   setFieldValue("campaignFileName", "");
                 // }}
-                disabled={true}
+                disabled={false}
                 // errors={errors}
                 // touched={touched}
               />
@@ -513,7 +470,7 @@ function OnboardForm() {
               <Label style={{ marginBottom: "10px" }}>Patients Address</Label>
             </Grid>
             <Grid item xs={12 / 5}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="No street"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -522,43 +479,43 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="City"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 value="Knoxville"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="State"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 value="TN"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="number"
                 label="Zip Code"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 value="37902"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="number"
                 label="Telephone"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 value="(877) 355-4141"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
           </Grid>
@@ -575,7 +532,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -608,7 +565,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -641,7 +598,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -674,7 +631,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -709,7 +666,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -744,7 +701,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -779,7 +736,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -821,7 +778,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -855,7 +812,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -891,7 +848,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -925,7 +882,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -954,12 +911,12 @@ function OnboardForm() {
             </Grid>
             <Grid item xs={2} sx={{ paddingRight: 2 }}>
               <Label style={{ marginBottom: "15px" }}>Place(State)</Label>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Place"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                isViewMode={true}
+                isViewMode={false}
                 value="TN"
               />
             </Grid>
@@ -972,7 +929,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -1006,7 +963,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -1037,12 +994,12 @@ function OnboardForm() {
               <Label style={{ marginBottom: "15px" }}>
                 Claim Codes (Designed by Nucc)
               </Label>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Claim code"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
                 value="10d Claim codes"
               />
             </Grid>
@@ -1063,12 +1020,12 @@ function OnboardForm() {
               </Label>
             </Grid>
             <Grid item xs={4}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Sign"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
             <Grid item xs={4} paddingLeft={2}>
@@ -1079,7 +1036,7 @@ function OnboardForm() {
                 // required
                 label={"Date"}
                 name={"scheduleDate"}
-                isViewMode={true}
+                isViewMode={false}
                 minDate={new Date()}
                 fullWidth
                 // value={values.scheduleDate}
@@ -1099,13 +1056,13 @@ function OnboardForm() {
           </Grid>
           <Grid item xs={4}>
             <Label style={{ marginBottom: "10px" }}>Insureds ID number</Label>
-            <TextFeildComp
+            <CustomTextField
               type="text"
               label="Id no"
               value="A456789"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
-              isViewMode={true}
+              isViewMode={false}
             />
           </Grid>
           <Grid item container xs={12}>
@@ -1113,32 +1070,32 @@ function OnboardForm() {
               <Label style={{ marginBottom: "10px" }}>Insureds Name</Label>
             </Grid>
             <Grid item xs={4} paddingY={1} paddingRight={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Last Name"
                 value="Salemy"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
             <Grid item xs={4} padding={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="First Name"
                 value="Cheryl"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
             <Grid item xs={4} padding={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Middle Name"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
                 value="A"
               />
             </Grid>
@@ -1149,53 +1106,53 @@ function OnboardForm() {
               <Label style={{ marginBottom: "10px" }}>Insureds Address</Label>
             </Grid>
             <Grid item xs={12 / 5}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="No street"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 value="500 West Summit Hill Drive"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="City"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 value="Knoxville"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="State"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 value="TN"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="number"
                 label="Zip Code"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 value="37902"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="number"
                 label="Telephone"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 value="(877) 355-4141"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
           </Grid>
@@ -1206,32 +1163,32 @@ function OnboardForm() {
               </Label>
             </Grid>
             <Grid item xs={4} paddingY={1} paddingRight={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Last Name"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
                 value="Salemy,"
               />
             </Grid>
             <Grid item xs={4} padding={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="First Name"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
                 value="Susan"
               />
             </Grid>
             <Grid item xs={4} padding={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Middle Name"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
                 value="J"
               />
             </Grid>
@@ -1241,51 +1198,51 @@ function OnboardForm() {
               <Label style={{ marginBottom: "10px" }}>
                 Other Insureds Policy Number
               </Label>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Policy Number"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 value="OtherPolicy1234567"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
             <Grid item xs={4}>
               <Label style={{ marginBottom: "10px" }}>
                 Reserved For Nucc use
               </Label>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Nucc use"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 value="9c reserved for NUCC Use"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
             <Grid item xs={4} marginBottom={2}>
               <Label style={{ marginBottom: "10px" }}>
                 Reserved For Nucc use
               </Label>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Nucc use"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 value="9c reserved for NUCC Use"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
             <Grid item xs={3.5}>
               <Label style={{ marginBottom: "10px" }}>
                 Insurance Plan Name or programe name
               </Label>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Name"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
                 value="9d Ins Plan Name or Programe Name"
               />
             </Grid>
@@ -1293,13 +1250,13 @@ function OnboardForm() {
               <Label style={{ marginBottom: "10px" }}>
                 Insureds Plicy group or FECA number
               </Label>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="FECA number"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 value="Policy 123456"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
             <Grid item xs={4}>
@@ -1313,7 +1270,7 @@ function OnboardForm() {
                 // required
                 label={"Date of birth"}
                 name={"scheduleDate"}
-                isViewMode={true}
+                isViewMode={false}
                 minDate={new Date("16/06/1966")}
                 fullWidth
                 // value={values.scheduleDate}
@@ -1328,13 +1285,13 @@ function OnboardForm() {
               <Label style={{ marginBottom: "10px" }}>
                 Other Claim Id (Designated by NUCC)
               </Label>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Claim Id"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 value="11b other claim Id"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
 
@@ -1342,12 +1299,12 @@ function OnboardForm() {
               <Label style={{ marginBottom: "10px" }}>
                 Insurance Plan Name Or Programe Name
               </Label>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Name"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
                 value="11c"
               />
             </Grid>
@@ -1361,7 +1318,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -1394,7 +1351,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -1437,7 +1394,7 @@ function OnboardForm() {
                 //   setFieldValue("campaignFile", "");
                 //   setFieldValue("campaignFileName", "");
                 // }}
-                disabled={true}
+                disabled={false}
                 // errors={errors}
                 // touched={touched}
               />
@@ -1455,12 +1412,12 @@ function OnboardForm() {
               </Label>
             </Grid>
             <Grid item xs={5}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Sign"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
           </Grid>
@@ -1477,7 +1434,7 @@ function OnboardForm() {
                 // required
                 label={"Date"}
                 name={"scheduleDate"}
-                isViewMode={true}
+                isViewMode={false}
                 minDate={new Date("10/09/1994")}
                 fullWidth
                 // value={values.scheduleDate}
@@ -1487,12 +1444,12 @@ function OnboardForm() {
             </Grid>
             <Grid item xs={5} sx={{ paddingLeft: 2 }}>
               <Label style={{ marginBottom: "15px" }}>Qual</Label>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Qual"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
                 value="122345"
               />
             </Grid>
@@ -1507,7 +1464,7 @@ function OnboardForm() {
                 // required
                 label={"Date"}
                 name={"scheduleDate"}
-                isViewMode={true}
+                isViewMode={false}
                 minDate={new Date("08/08/1994")}
                 fullWidth
                 // value={values.scheduleDate}
@@ -1517,12 +1474,12 @@ function OnboardForm() {
             </Grid>
             <Grid item xs={5} sx={{ paddingLeft: 2 }}>
               <Label style={{ marginBottom: "15px" }}>Qual</Label>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Qual"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
                 value="QL"
               />
             </Grid>
@@ -1539,7 +1496,7 @@ function OnboardForm() {
                 // required
                 label={"From"}
                 name={"scheduleDate"}
-                isViewMode={true}
+                isViewMode={false}
                 minDate={new Date("09/09/1996")}
                 fullWidth
                 // value={values.scheduleDate}
@@ -1556,7 +1513,7 @@ function OnboardForm() {
                 // required
                 label={"To"}
                 name={"scheduleDate"}
-                isViewMode={true}
+                isViewMode={false}
                 minDate={new Date("14/09/1996")}
                 fullWidth
                 // value={values.scheduleDate}
@@ -1572,23 +1529,23 @@ function OnboardForm() {
               </Label>
             </Grid>
             <Grid item xs={5}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="A"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 value="21-02215464"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
             <Grid item xs={5} paddingLeft={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="B"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 value="25-1987531"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
           </Grid>
@@ -1604,7 +1561,7 @@ function OnboardForm() {
                 // required
                 label={"From"}
                 name={"scheduleDate"}
-                isViewMode={true}
+                isViewMode={false}
                 minDate={new Date("10/10/2000")}
                 fullWidth
                 // value={values.scheduleDate}
@@ -1621,7 +1578,7 @@ function OnboardForm() {
                 // required
                 label={"To"}
                 name={"scheduleDate"}
-                isViewMode={true}
+                isViewMode={false}
                 minDate={new Date("10/10/2000")}
                 fullWidth
                 // value={values.scheduleDate}
@@ -1634,12 +1591,12 @@ function OnboardForm() {
             <Label style={{ marginBottom: "15px" }}>
               Aditional Claim information (Designed by NUCC)
             </Label>
-            <TextFeildComp
+            <CustomTextField
               type="text"
               label="Claim Information"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
-              isViewMode={true}
+              isViewMode={false}
               value="aditional value"
             />
           </Grid>
@@ -1655,7 +1612,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -1688,7 +1645,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -1718,12 +1675,12 @@ function OnboardForm() {
           </Grid>
           <Grid item xs={5}>
             <Label style={{ marginBottom: "15px" }}>Charges</Label>
-            <TextFeildComp
+            <CustomTextField
               type="text"
               label="Charges"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
-              isViewMode={true}
+              isViewMode={false}
               value="1000.00"
             />
           </Grid>
@@ -1736,121 +1693,121 @@ function OnboardForm() {
               </Label>
             </Grid>
             <Grid item xs={3}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="A"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
                 value="a525.00"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="B"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
                 value="b525.00"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="C"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
                 value="c525.10"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="D"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
                 value="d545.10"
               />
             </Grid>
             <Grid item xs={3} paddingTop={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="E"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
                 value="e522.20"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="F"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
                 value="f524.30"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="G"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
                 value="g454.65"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="H"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
             <Grid item xs={3} paddingTop={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="I"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
                 value="i345.78"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="J"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
                 value="j564.89"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="K"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
                 value="k675.98"
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="L"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
                 value="456.78"
               />
             </Grid>
@@ -1858,12 +1815,12 @@ function OnboardForm() {
           <Grid item xs={4}>
             <Label style={{ marginBottom: "15px" }}>Resubmission Code</Label>
             <Grid>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Code"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
                 value="ABC123"
               />
             </Grid>
@@ -1871,12 +1828,12 @@ function OnboardForm() {
           <Grid item xs={4}>
             <Label style={{ marginBottom: "15px" }}>Original Ref No</Label>
             <Grid>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Ref No"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
                 value="originalInfo1234"
               />
             </Grid>
@@ -1886,12 +1843,12 @@ function OnboardForm() {
             <Label style={{ marginBottom: "15px" }}>
               Prize Authorization Number
             </Label>
-            <TextFeildComp
+            <CustomTextField
               type="text"
               label="Authorization Number"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
-              isViewMode={true}
+              isViewMode={false}
               value="7546987657"
             />
           </Grid>
@@ -1900,41 +1857,41 @@ function OnboardForm() {
             <Label>Federal Tax I.D Number</Label>
           </Grid>
           <Grid item xs={4}>
-            <TextFeildComp
+            <CustomTextField
               type="text"
               label="Id Number"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
-              isViewMode={true}
+              isViewMode={false}
               value="574898765"
             />
           </Grid>
           <Grid item xs={4}>
-            <TextFeildComp
+            <CustomTextField
               type="text"
               label="SSN"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
-              isViewMode={true}
+              isViewMode={false}
             />
           </Grid>
           <Grid item xs={4}>
-            <TextFeildComp
+            <CustomTextField
               type="text"
               label="EIN"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
-              isViewMode={true}
+              isViewMode={false}
             />
           </Grid>
           <Grid item xs={4}>
             <Label style={{ marginBottom: "10px" }}>Patients Account No</Label>
-            <TextFeildComp
+            <CustomTextField
               type="text"
               label="Account Number"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
-              isViewMode={true}
+              isViewMode={false}
               value="768443096"
             />
           </Grid>
@@ -1949,7 +1906,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -1982,7 +1939,7 @@ function OnboardForm() {
                 //     (item) => item?.contentMenuId === value?.id
                 //   ) || false
                 // }
-                isViewMode={true}
+                isViewMode={false}
                 // name={value.name}
                 // onChange={(e) => {
                 //   if (e.target.checked) {
@@ -2012,34 +1969,34 @@ function OnboardForm() {
           </Grid>
           <Grid item xs={4}>
             <Label style={{ marginBottom: "15px" }}>Total Charge</Label>
-            <TextFeildComp
+            <CustomTextField
               type="text"
               label="Total Charge"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
-              disabled={true}
+              disabled={false}
               value="396.00"
             />
           </Grid>
           <Grid item xs={4}>
             <Label style={{ marginBottom: "15px" }}>Amount Paid</Label>
-            <TextFeildComp
+            <CustomTextField
               type="text"
               label="Amount Paid"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
               value="200"
-              disabled={true}
+              disabled={false}
             />
           </Grid>
           <Grid item xs={4}>
             <Label style={{ marginBottom: "15px" }}>PlsVd for NUCC Use</Label>
-            <TextFeildComp
+            <CustomTextField
               type="text"
               label="PlsVd"
               // endormentIcon={<PersonOutlineIcon />}
               variant="outlined"
-              isViewMode={true}
+              isViewMode={false}
             />
           </Grid>
           <Grid item xs={12}>
@@ -2168,25 +2125,9 @@ function OnboardForm() {
                         <SmallEditableComp
                           contentEditable
                           theme={{ width: "100%" }}
-                          style={{
-                            backgroundColor: "red",
-                            color: "#fff",
-                            display: "flex",
-                            alignItems: "center",
-                            columnGap: "3px",
-                          }}
+                          style={{ backgroundColor: "#005061", color: "#fff" }}
                         >
-                          87635
-                          <Tooltip title="View History">
-                            <ManageHistoryIcon
-                              style={{
-                                cursor: "pointer",
-                                fontSize: "16px",
-                                width: "16px",
-                              }}
-                              onClick={() => toggle(true)}
-                            />
-                          </Tooltip>
+                          90658
                         </SmallEditableComp>
                       </div>
                     </td>
@@ -2736,12 +2677,12 @@ function OnboardForm() {
               </Label>
             </Grid>
             <Grid item xs={4}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Sign"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
             <Grid item xs={4} paddingLeft={2}>
@@ -2752,7 +2693,7 @@ function OnboardForm() {
                 // required
                 label={"Date of birth"}
                 name={"scheduleDate"}
-                isViewMode={true}
+                isViewMode={false}
                 minDate={new Date("2/28/2017")}
                 fullWidth
                 // value={values.scheduleDate}
@@ -2766,22 +2707,22 @@ function OnboardForm() {
               <Label>Service Facility Location Information</Label>
             </Grid>
             <Grid item xs={4}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="A"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 value="ABC General Store"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
             <Grid item xs={4} paddingLeft={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="B"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
           </Grid>
@@ -2790,78 +2731,30 @@ function OnboardForm() {
               <Label>Billing Provider Info</Label>
             </Grid>
             <Grid item xs={4}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="A"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 value="PlipSide"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
             <Grid item xs={4} paddingLeft={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="B"
                 // endormentIcon={<PersonOutlineIcon />}
                 variant="outlined"
                 value="Po Box 3120843747"
-                disabled={true}
+                disabled={false}
               />
             </Grid>
           </Grid>
         </Grid>
       </Box>
-      <Modal open={showPreview} onClose={handleClose}>
-        <VersionContainer
-          style={{
-            overflow: "hidden",
-          }}
-        >
-          <CloseIconContainer>
-            <IconButton
-              onClick={() => {
-                handleClose();
-              }}
-            >
-              <CloseIcon />
-            </IconButton>
-          </CloseIconContainer>
-          <Box sx={{ width: "100%", margin: "0px auto" }}>
-            <ReactPdfViewer pdfUrl={pdfUrl} />
-          </Box>
-        </VersionContainer>
-      </Modal>
-
-      <FlexContainer>
-        <Button
-          variant="outlined"
-          color="secondary"
-          onClick={() => setShowPreview(true)}
-        >
-          Preview
-        </Button>
-        <Button variant="contained" color="success">
-          Approve
-        </Button>
-        <Button variant="contained" color="error">
-          Reject
-        </Button>
-        {/* <Button
-          variant="contained"
-          color="secondary"
-          onClick={() => toggle(true)}
-          // drawerFun={toggleDrawer}
-        >
-          Drawer
-        </Button> */}
-      </FlexContainer>
-
-      <CustomDrawer anchor={anchor} drawerFun={toggle}></CustomDrawer>
-
-      {/* {showPreview && <Preview showPreview={() => setShowPreview(false)} />} */}
     </Paper>
   );
 }
 
-export default OnboardForm;
+export default ClaimForm;
