@@ -181,3 +181,7 @@ button:focus-visible {
 .MuiInputLabel-root {
   font-size: 13px !important;
 }
+
+.react-pdf__Page__canvas {
+  margin: 0 auto;
+}
