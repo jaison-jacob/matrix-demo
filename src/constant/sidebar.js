@@ -29,14 +29,14 @@ const sideBarData = [
     menuId: ["cod1"],
     pageName: "Coding Validation",
   },
-  {
-    label: "On BoardForm",
-    icon: CottageOutlinedIcon,
-    routePath: matrixPath.ONBOARD_FORM,
-    routeKey: "onboardForm",
-    menuId: ["cod1", "pat1"],
-    pageName: "On Board From",
-  },
+  // {
+  //   label: "On BoardForm",
+  //   icon: CottageOutlinedIcon,
+  //   routePath: matrixPath.ONBOARD_FORM,
+  //   routeKey: "onboardForm",
+  //   menuId: ["cod1", "pat1"],
+  //   pageName: "On Board From",
+  // },
 ];
 
 export { sideBarData };
