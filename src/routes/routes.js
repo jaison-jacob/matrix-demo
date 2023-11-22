@@ -10,6 +10,7 @@ import Coding from "../pages/Coding";
 import Claim from "../pages/Claim";
 import PatientInfo from "../pages/PatientInfo";
 import CodingForm from "../pages/CodingForm";
+import OnBoardForm from "../pages/OnboardForm";
 
 const OnboardFormLazy = lazy(() => import("../pages/ClaimForm"));
 
@@ -20,7 +21,7 @@ export const matrixRoutes = [
     exact: true,
   },
   {
-    path: matrixPath.ONBOARD_FORM,
+    path: matrixPath.CLAIM_FORM,
     Component: OnboardFormLazy,
     exact: true,
   },
@@ -62,6 +63,11 @@ export const matrixRoutes = [
   {
     path: matrixPath.VISITPATIENT,
     Component: PatientInfo,
+    exact: true,
+  },
+  {
+    path: matrixPath.ONBOARD_FORM,
+    Component: OnBoardForm,
     exact: true,
   },
 ];
