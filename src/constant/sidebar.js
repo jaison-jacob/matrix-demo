@@ -18,7 +18,7 @@ const sideBarData = [
     icon: AddToQueueIcon,
     routePath: matrixPath.CLAIM_FORM,
     routeKey: "claimForm",
-    menuId: ["pat1", "cod1"],
+    menuId: ["pat1"],
     pageName: "Health Insurance Claim Form",
   },
   {

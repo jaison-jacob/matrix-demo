@@ -74,8 +74,8 @@ export default function Visit() {
           Status :
         </span>
         {myProfileData.roleId === "cod1"
-          ? "Ready for coding"
-          : "Assesment completed"}
+          ? "Coding Review"
+          : "Assesment Completed"}
       </Box>
       <Box sx={{ backgroundColor: "#FFFFFF" }}>
         {tableData.headCells.length > 0 && tableData.boddyCells.length > 0 && (

@@ -36,8 +36,8 @@ export const LoginImg = styled(Box)(() => ({
 }));
 
 export const roleData = [
-  { name: "Billing analyst", id: "pat1" },
-  { name: "Coding analyst", id: "cod1" },
+  { name: "Billing Analyst", id: "pat1" },
+  { name: "Coding Analyst", id: "cod1" },
 ];
 
 const LogIn = () => {
