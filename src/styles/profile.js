@@ -20,7 +20,7 @@ const StyledProfileAvatar = styled(Avatar, {
 }));
 
 const CustomMenu = styled(Menu)(({ theme }) => ({
-  ".css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper": {
+  ".MuiMenu-paper": {
     borderRadius: "8px",
     fontFamily: "Poppins",
   },
@@ -53,7 +53,7 @@ const StyledListIcon = styled(ListItemIcon, {
   color: "#DDDDE0",
   marginRight: "10px !important",
   //   marginLeft: "10px",
-  ".css-i4bv87-MuiSvgIcon-root": {
+  ".MuiSvgIcon-root": {
     fontSize: "20px",
   },
 }));
@@ -62,7 +62,7 @@ const StyledListText = styled(ListItemText, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
   color: "#DDDDE0",
-  ".css-10hburv-MuiTypography-root": {
+  ".MuiTypography-root": {
     fontFamily: "Poppins",
     fontSize: "12px ",
     letterSpacing: "1px",

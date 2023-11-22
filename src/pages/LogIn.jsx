@@ -24,12 +24,15 @@ export const LoginHeader = styled("div")(() => ({
   //   textTransform: "lowercase !important",
 }));
 
-export const LoginImg = styled("img")(() => ({
+export const LoginImg = styled(Box)(() => ({
   width: "100%",
   height: "100%",
-  objectFit: "cover",
+  backgroundImage: "url(/latest-login.png)",
+  backgroundSize: "cover",
+  backgroundRepeat: "no-repeat",
+  backgroundPosition: "center",
   overflow: "hidden",
-  borderRadius: "12px 0 0 12px",
+  borderRadius: "16px 0px 0px 16px ",
 }));
 
 export const roleData = [
@@ -94,9 +97,9 @@ const LogIn = () => {
       padding={5}
       // sx={{ backgroundColor: "#4F6795" }}
     >
-      <Grid sx={{ height: "calc(100vh - 100px)" }} container xs={12}>
+      <Grid sx={{ height: "calc(100vh - 100px)" }} container>
         <Grid item xs={8} sx={{ height: "100%" }}>
-          <LoginImg src={"/lateralcareImg.png"} alt="logo" />
+          <LoginImg />
         </Grid>
         <Grid
           item

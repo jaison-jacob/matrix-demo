@@ -199,7 +199,7 @@ function ClaimForm() {
               />
             </Grid>
             <Grid item xs={12 / 7}>
-              <Label>Tricafe</Label>
+              <Label>Tricare</Label>
               <CustomCheckBox
                 inputProps={{ "aria-label": "controlled" }}
                 // checked={

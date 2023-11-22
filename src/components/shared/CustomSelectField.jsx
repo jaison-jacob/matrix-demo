@@ -13,37 +13,23 @@ export const StyledSelectFeildContainer = styled(FormControl)(
     ".MuiFormLabel-root ": {
       color: "#757575 !important",
       fontFamily: "Poppins",
-    },
-    ".css-1x51dt5-MuiInputBase-input-MuiInput-input": {
-      color: "#757575 !important",
-      fontFamily: "Poppins",
-    },
-    ".css-1rb63tl-MuiInputBase-root-MuiInput-root": {
-      color: "#757575 !important",
-      fontFamily: "Poppins",
+      fontSize: "13px",
     },
     ".mui-focused": {
       color: "#757575",
       fontFamily: "Poppins",
     },
-    ".css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root": {
-      fontSize: "14px",
-    },
     ".MuiInputBase-root:after": {
       borderBottom: "2px solid #757575 !important",
     },
-    ".css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input":
-      {
-        padding: "14px 14px",
-        fontSize: "14px",
-        color: "#757575",
-      },
     ".MuiOutlinedInput-notchedOutline": {
       border: "1px solid #757575 !important",
     },
 
     ".MuiSelect-select ": {
-      padding: "14px 32px 14px 14px",
+      padding: "13px 32px 13px 13px",
+      fontSize: "14px",
+      color: "#757575",
     },
   })
 );

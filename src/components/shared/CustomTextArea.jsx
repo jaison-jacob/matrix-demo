@@ -9,7 +9,7 @@ export const StyledTextAreaFeildContainer = styled(TextField)(
       fontFamily: "Poppins",
       fontSize: "14px",
     },
-    ".css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input": {
+    ".MuiInputBase-root": {
       color: "#757575 !important",
       fontFamily: "Poppins",
       fontSize: "13px",
@@ -23,9 +23,6 @@ export const StyledTextAreaFeildContainer = styled(TextField)(
     },
     ".MuiInputBase-root:after": {
       borderBottom: "2px solid grey !important",
-    },
-    ".css-8ewcdo-MuiInputBase-root-MuiOutlinedInput-root": {
-      padding: "14px",
     },
   })
 );

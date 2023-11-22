@@ -13,14 +13,14 @@ export const StyledDateFeildContainer = styled(DatePicker)(
     ".MuiTextField-root": {
       width: "100% !important",
     },
-    ".css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root": {
+    ".MuiInputBase-formControl": {
       fontSize: "14px",
       color: "#757575",
     },
     ".MuiOutlinedInput-input": {
       padding: "14px",
     },
-    ".css-1d3z3hw-MuiOutlinedInput-notchedOutline": {
+    ".MuiOutlinedInput-notchedOutline ": {
       border: "1px solid #757575 !important",
     },
     ".Mui-focused": {

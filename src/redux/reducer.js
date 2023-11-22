@@ -18,13 +18,13 @@ export const initialState = {
       role: "cod1",
     },
     {
-      userName: "John Doe",
+      userName: "Demo User1",
       password: "12345",
       role: "pat1",
     },
     {
-      userName: "James George",
-      password: "1234",
+      userName: "Demo User2",
+      password: "12345",
       role: "cod1",
     },
   ],

@@ -8,7 +8,7 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import TextFeildComp from "../components/shared/TextFeildComp";
+import CustomTextField from "../components/shared/CustomTextField";
 import styled from "styled-components";
 import CustomCheckBox from "../components/shared/CustomCheckBox";
 import CustomRadio from "../components/shared/CustomRadio";
@@ -96,7 +96,7 @@ function OnboardForm() {
   // ];'
   const [showPreview, setShowPreview] = useState(false);
   const [anchor, setAnchor] = useState(false);
-  const pdfUrl = "../assets/form-cms1500.pdf";
+  const pdfUrl = "../assets/form-cms1500-compressed.pdf";
 
   const handleClose = () => {
     setShowPreview(false);
@@ -242,7 +242,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={12 / 7}>
-              <Label>Tricafe</Label>
+              <Label>Tricare</Label>
               <CustomCheckBox
                 inputProps={{ "aria-label": "controlled" }}
                 // checked={
@@ -428,7 +428,7 @@ function OnboardForm() {
               <Label style={{ marginBottom: "10px" }}>Patients Name</Label>
             </Grid>
             <Grid item xs={4} paddingY={1} paddingRight={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Last Name"
                 value="Salemy"
@@ -438,7 +438,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={4} padding={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="First Name"
                 value="Cheryl"
@@ -448,7 +448,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={4} padding={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Middle Name"
                 value="A"
@@ -513,7 +513,7 @@ function OnboardForm() {
               <Label style={{ marginBottom: "10px" }}>Patients Address</Label>
             </Grid>
             <Grid item xs={12 / 5}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="No street"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -522,7 +522,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="City"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -532,7 +532,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="State"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -542,7 +542,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="number"
                 label="Zip Code"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -552,7 +552,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="number"
                 label="Telephone"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -954,7 +954,7 @@ function OnboardForm() {
             </Grid>
             <Grid item xs={2} sx={{ paddingRight: 2 }}>
               <Label style={{ marginBottom: "15px" }}>Place(State)</Label>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Place"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1037,7 +1037,7 @@ function OnboardForm() {
               <Label style={{ marginBottom: "15px" }}>
                 Claim Codes (Designed by Nucc)
               </Label>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Claim code"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1063,7 +1063,7 @@ function OnboardForm() {
               </Label>
             </Grid>
             <Grid item xs={4}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Sign"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1099,7 +1099,7 @@ function OnboardForm() {
           </Grid>
           <Grid item xs={4}>
             <Label style={{ marginBottom: "10px" }}>Insureds ID number</Label>
-            <TextFeildComp
+            <CustomTextField
               type="text"
               label="Id no"
               value="A456789"
@@ -1113,7 +1113,7 @@ function OnboardForm() {
               <Label style={{ marginBottom: "10px" }}>Insureds Name</Label>
             </Grid>
             <Grid item xs={4} paddingY={1} paddingRight={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Last Name"
                 value="Salemy"
@@ -1123,7 +1123,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={4} padding={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="First Name"
                 value="Cheryl"
@@ -1133,7 +1133,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={4} padding={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Middle Name"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1149,7 +1149,7 @@ function OnboardForm() {
               <Label style={{ marginBottom: "10px" }}>Insureds Address</Label>
             </Grid>
             <Grid item xs={12 / 5}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="No street"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1159,7 +1159,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="City"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1169,7 +1169,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="State"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1179,7 +1179,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="number"
                 label="Zip Code"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1189,7 +1189,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={12 / 5} paddingLeft={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="number"
                 label="Telephone"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1206,7 +1206,7 @@ function OnboardForm() {
               </Label>
             </Grid>
             <Grid item xs={4} paddingY={1} paddingRight={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Last Name"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1216,7 +1216,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={4} padding={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="First Name"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1226,7 +1226,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={4} padding={1}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Middle Name"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1241,7 +1241,7 @@ function OnboardForm() {
               <Label style={{ marginBottom: "10px" }}>
                 Other Insureds Policy Number
               </Label>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Policy Number"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1254,7 +1254,7 @@ function OnboardForm() {
               <Label style={{ marginBottom: "10px" }}>
                 Reserved For Nucc use
               </Label>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Nucc use"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1267,7 +1267,7 @@ function OnboardForm() {
               <Label style={{ marginBottom: "10px" }}>
                 Reserved For Nucc use
               </Label>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Nucc use"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1280,7 +1280,7 @@ function OnboardForm() {
               <Label style={{ marginBottom: "10px" }}>
                 Insurance Plan Name or programe name
               </Label>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Name"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1293,7 +1293,7 @@ function OnboardForm() {
               <Label style={{ marginBottom: "10px" }}>
                 Insureds Plicy group or FECA number
               </Label>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="FECA number"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1328,7 +1328,7 @@ function OnboardForm() {
               <Label style={{ marginBottom: "10px" }}>
                 Other Claim Id (Designated by NUCC)
               </Label>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Claim Id"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1342,7 +1342,7 @@ function OnboardForm() {
               <Label style={{ marginBottom: "10px" }}>
                 Insurance Plan Name Or Programe Name
               </Label>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Name"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1455,7 +1455,7 @@ function OnboardForm() {
               </Label>
             </Grid>
             <Grid item xs={5}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Sign"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1487,7 +1487,7 @@ function OnboardForm() {
             </Grid>
             <Grid item xs={5} sx={{ paddingLeft: 2 }}>
               <Label style={{ marginBottom: "15px" }}>Qual</Label>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Qual"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1517,7 +1517,7 @@ function OnboardForm() {
             </Grid>
             <Grid item xs={5} sx={{ paddingLeft: 2 }}>
               <Label style={{ marginBottom: "15px" }}>Qual</Label>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Qual"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1572,7 +1572,7 @@ function OnboardForm() {
               </Label>
             </Grid>
             <Grid item xs={5}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="A"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1582,7 +1582,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={5} paddingLeft={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="B"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1634,7 +1634,7 @@ function OnboardForm() {
             <Label style={{ marginBottom: "15px" }}>
               Aditional Claim information (Designed by NUCC)
             </Label>
-            <TextFeildComp
+            <CustomTextField
               type="text"
               label="Claim Information"
               // endormentIcon={<PersonOutlineIcon />}
@@ -1718,7 +1718,7 @@ function OnboardForm() {
           </Grid>
           <Grid item xs={5}>
             <Label style={{ marginBottom: "15px" }}>Charges</Label>
-            <TextFeildComp
+            <CustomTextField
               type="text"
               label="Charges"
               // endormentIcon={<PersonOutlineIcon />}
@@ -1736,7 +1736,7 @@ function OnboardForm() {
               </Label>
             </Grid>
             <Grid item xs={3}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="A"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1746,7 +1746,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="B"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1756,7 +1756,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="C"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1766,7 +1766,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="D"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1776,7 +1776,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={3} paddingTop={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="E"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1786,7 +1786,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="F"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1796,7 +1796,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="G"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1806,7 +1806,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="H"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1815,7 +1815,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={3} paddingTop={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="I"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1825,7 +1825,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="J"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1835,7 +1835,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="K"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1845,7 +1845,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={3} paddingLeft={2} paddingTop={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="L"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1858,7 +1858,7 @@ function OnboardForm() {
           <Grid item xs={4}>
             <Label style={{ marginBottom: "15px" }}>Resubmission Code</Label>
             <Grid>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Code"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1871,7 +1871,7 @@ function OnboardForm() {
           <Grid item xs={4}>
             <Label style={{ marginBottom: "15px" }}>Original Ref No</Label>
             <Grid>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Ref No"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -1886,7 +1886,7 @@ function OnboardForm() {
             <Label style={{ marginBottom: "15px" }}>
               Prize Authorization Number
             </Label>
-            <TextFeildComp
+            <CustomTextField
               type="text"
               label="Authorization Number"
               // endormentIcon={<PersonOutlineIcon />}
@@ -1900,7 +1900,7 @@ function OnboardForm() {
             <Label>Federal Tax I.D Number</Label>
           </Grid>
           <Grid item xs={4}>
-            <TextFeildComp
+            <CustomTextField
               type="text"
               label="Id Number"
               // endormentIcon={<PersonOutlineIcon />}
@@ -1910,7 +1910,7 @@ function OnboardForm() {
             />
           </Grid>
           <Grid item xs={4}>
-            <TextFeildComp
+            <CustomTextField
               type="text"
               label="SSN"
               // endormentIcon={<PersonOutlineIcon />}
@@ -1919,7 +1919,7 @@ function OnboardForm() {
             />
           </Grid>
           <Grid item xs={4}>
-            <TextFeildComp
+            <CustomTextField
               type="text"
               label="EIN"
               // endormentIcon={<PersonOutlineIcon />}
@@ -1929,7 +1929,7 @@ function OnboardForm() {
           </Grid>
           <Grid item xs={4}>
             <Label style={{ marginBottom: "10px" }}>Patients Account No</Label>
-            <TextFeildComp
+            <CustomTextField
               type="text"
               label="Account Number"
               // endormentIcon={<PersonOutlineIcon />}
@@ -2012,7 +2012,7 @@ function OnboardForm() {
           </Grid>
           <Grid item xs={4}>
             <Label style={{ marginBottom: "15px" }}>Total Charge</Label>
-            <TextFeildComp
+            <CustomTextField
               type="text"
               label="Total Charge"
               // endormentIcon={<PersonOutlineIcon />}
@@ -2023,7 +2023,7 @@ function OnboardForm() {
           </Grid>
           <Grid item xs={4}>
             <Label style={{ marginBottom: "15px" }}>Amount Paid</Label>
-            <TextFeildComp
+            <CustomTextField
               type="text"
               label="Amount Paid"
               // endormentIcon={<PersonOutlineIcon />}
@@ -2034,7 +2034,7 @@ function OnboardForm() {
           </Grid>
           <Grid item xs={4}>
             <Label style={{ marginBottom: "15px" }}>PlsVd for NUCC Use</Label>
-            <TextFeildComp
+            <CustomTextField
               type="text"
               label="PlsVd"
               // endormentIcon={<PersonOutlineIcon />}
@@ -2736,7 +2736,7 @@ function OnboardForm() {
               </Label>
             </Grid>
             <Grid item xs={4}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="Sign"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -2766,7 +2766,7 @@ function OnboardForm() {
               <Label>Service Facility Location Information</Label>
             </Grid>
             <Grid item xs={4}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="A"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -2776,7 +2776,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={4} paddingLeft={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="B"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -2790,7 +2790,7 @@ function OnboardForm() {
               <Label>Billing Provider Info</Label>
             </Grid>
             <Grid item xs={4}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="A"
                 // endormentIcon={<PersonOutlineIcon />}
@@ -2800,7 +2800,7 @@ function OnboardForm() {
               />
             </Grid>
             <Grid item xs={4} paddingLeft={2}>
-              <TextFeildComp
+              <CustomTextField
                 type="text"
                 label="B"
                 // endormentIcon={<PersonOutlineIcon />}

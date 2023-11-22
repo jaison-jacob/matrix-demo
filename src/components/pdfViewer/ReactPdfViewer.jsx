@@ -7,7 +7,7 @@ const ReactPdfViewer = (props) => {
   const { pdfUrl } = props;
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
-  const file = "/form-cms1500.pdf";
+  const file = "/form-cms1500-compressed.pdf";
 
   pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 

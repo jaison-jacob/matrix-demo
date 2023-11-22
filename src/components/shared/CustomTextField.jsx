@@ -7,35 +7,26 @@ export const StyledTextFeildContainer = styled(TextField)(
     ".MuiFormLabel-root ": {
       color: "#757575 !important",
       fontFamily: "Poppins",
+      fontSize: "12px",
     },
-    ".css-1x51dt5-MuiInputBase-input-MuiInput-input": {
-      color: "#757575 !important",
-      fontFamily: "Poppins",
-    },
-    ".css-1rb63tl-MuiInputBase-root-MuiInput-root": {
-      color: "#757575 !important",
-      fontFamily: "Poppins",
-    },
+
     ".mui-focused": {
       color: "#757575",
       fontFamily: "Poppins",
     },
-    ".css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root": {
-      fontSize: "12px",
+    ".MuiInputLabel-shrink": {
+      fontSize: "16px",
     },
     ".MuiInputBase-root:after": {
       borderBottom: "2px solid #757575 !important",
     },
-    ".css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input": {
+    ".MuiInputBase-input ": {
       padding: "14px 14px",
       fontSize: "12px",
       color: "#757575",
     },
     ".MuiOutlinedInput-notchedOutline": {
       border: "1px solid #757575 !important",
-    },
-    ".css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input": {
-      fontFamily: "Poppins",
     },
   })
 );

@@ -50,7 +50,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   "-moz-text-fill-color": "transparent",
   //   padding: theme.spacing(0, 5),
   // necessary for content to be below app bar
-  ".css-kpy94b-MuiTypography-root": {
+  ".MuiTypography-h6": {
     fontFamily: "Poppins",
     fontSize: "18px",
     fontWeight: "600",
@@ -76,7 +76,7 @@ const Drawer = styled(MuiDrawer, {
     ...closedMixin(theme),
     "& .MuiDrawer-paper": closedMixin(theme),
   }),
-  ".css-12i7wg6-MuiPaper-root-MuiDrawer-paper": {
+  ".MuiDrawer-paper": {
     background: "rgb(18, 17, 53)",
   },
 }));
@@ -94,7 +94,7 @@ const StyledListIcon = styled(ListItemIcon, {
 })(({ isselected }) => ({
   color: isselected ? "#2080E8 !important" : "#DDDDE0 !important",
   marginRight: "10px !important",
-  ".css-i4bv87-MuiSvgIcon-root": {
+  ".MuiSvgIcon-root": {
     fontSize: "20px",
   },
 }));
@@ -104,7 +104,7 @@ const StyledListText = styled(ListItemText, {
 })(({ isselected }) => {
   return {
     color: isselected ? "#2080E8" : "#DDDDE0",
-    ".css-10hburv-MuiTypography-root": {
+    ".MuiTypography-body1": {
       fontFamily: "Poppins",
       fontSize: "12px",
       letterSpacing: "1px",

@@ -22,7 +22,7 @@ const sideBarData = [
     pageName: "Health Insurance Claim Form",
   },
   {
-    label: "coding Validation",
+    label: "Coding Validation",
     icon: FactCheckOutlinedIcon,
     routePath: matrixPath.CODING,
     routeKey: "coding-validation",
