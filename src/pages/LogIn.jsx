@@ -97,9 +97,20 @@ const LogIn = () => {
       padding={5}
       // sx={{ backgroundColor: "#4F6795" }}
     >
-      <Grid sx={{ height: "calc(100vh - 100px)" }} container>
+      <Grid
+        sx={{ height: "calc(100vh - 100px)" }}
+        container
+        style={{
+          backgroundImage: ` url('/latest-login.png')`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          overflow: "hidden",
+          borderRadius: "16px",
+        }}
+      >
         <Grid item xs={8} sx={{ height: "100%" }}>
-          <LoginImg />
+          {/* <LoginImg /> */}
         </Grid>
         <Grid
           item
@@ -110,6 +121,9 @@ const LogIn = () => {
             backgroundColor: "#FFFF",
             padding: "30px 50px",
             borderRadius: "0 16px 16px 0",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
           }}
         >
           <Box
