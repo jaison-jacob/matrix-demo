@@ -11,7 +11,7 @@ import Claim from "../pages/Claim";
 import PatientInfo from "../pages/PatientInfo";
 import CodingForm from "../pages/CodingForm";
 
-const OnboardFormLazy = lazy(() => import("../pages/OnboardForm"));
+const OnboardFormLazy = lazy(() => import("../pages/ClaimForm"));
 
 export const matrixRoutes = [
   {

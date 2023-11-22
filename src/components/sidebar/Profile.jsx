@@ -43,10 +43,9 @@ const Profile = () => {
     <Box sx={{ flexGrow: 0 }}>
       <Tooltip title="Open Profile Menu">
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          <StyledProfileAvatar
-            alt={myProfileData.name}
-            src="/static/images/avatar/2.jpg"
-          />
+          <StyledProfileAvatar>
+            {myProfileData?.name?.slice(0, 1)}
+          </StyledProfileAvatar>
         </IconButton>
       </Tooltip>
       <CustomMenu
@@ -66,11 +65,9 @@ const Profile = () => {
         onClose={handleCloseUserMenu}
       >
         <StyledProfileItem>
-          <StyledProfileAvatar
-            alt={myProfileData.name}
-            src="/static/images/avatar/2.jpg"
-            from={"menuItem"}
-          />
+          <StyledProfileAvatar from={"menuItem"}>
+            {myProfileData?.name?.slice(0, 1)}
+          </StyledProfileAvatar>
           <Box>
             <div
               style={{

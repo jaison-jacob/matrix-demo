@@ -136,6 +136,16 @@ button:focus-visible {
   width: 100%;
 }
 
+#patientInfo thead,
+#patientInfo tbody,
+#patientInfo tbody tr {
+  width: 100%;
+}
+
+#patientInfo tbody{
+  text-align: center;
+}
+
 #patientInfo td,
 #patientInfo th {
   border: 1px solid #ddd;

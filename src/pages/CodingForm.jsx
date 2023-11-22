@@ -1630,7 +1630,7 @@ function OnboardForm() {
               />
             </Grid>
           </Grid>
-          <Grid item constainer xs={5} sx={{ paddingLeft: 2 }}>
+          <Grid item container xs={5} sx={{ paddingLeft: 2 }}>
             <Label style={{ marginBottom: "15px" }}>
               Aditional Claim information (Designed by NUCC)
             </Label>
