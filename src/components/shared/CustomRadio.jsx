@@ -29,6 +29,9 @@ const StyledFormControlLabel = styled(FormControlLabel)(({ theme }) => ({
     fontFamily: "Poppins",
     fontSize: "13px",
   },
+  ".MuiRadio-root": {
+    padding: "0px 5px",
+  },
 }));
 
 function CustomRadio({
