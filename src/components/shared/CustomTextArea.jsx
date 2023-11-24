@@ -13,6 +13,7 @@ export const StyledTextAreaFeildContainer = styled(TextField)(
       color: "#757575 !important",
       fontFamily: "Poppins",
       fontSize: "13px",
+      padding: "14px",
     },
     ".mui-focused": {
       color: "#757575",

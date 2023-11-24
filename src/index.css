@@ -178,10 +178,40 @@ button:focus-visible {
   margin-bottom: 50px;
   height: 800px;
 }
-.MuiInputLabel-root {
+/* .MuiInputLabel-root {
   font-size: 13px !important;
-}
+} */
 
 .react-pdf__Page__canvas {
   margin: 0 auto;
+}
+
+.bouncing-loader {
+  display: flex;
+  justify-content: center;
+}
+
+.bouncing-loader > div {
+  width: 9px;
+  height: 9px;
+  margin: 3px 2px;
+  border-radius: 50%;
+  background-color: #47507a;
+  opacity: 1;
+  animation: bouncing-loader 0.6s infinite alternate;
+}
+
+@keyframes bouncing-loader {
+  to {
+    opacity: 0.1;
+    transform: translateY(-4px);
+  }
+}
+
+.bouncing-loader > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.bouncing-loader > div:nth-child(3) {
+  animation-delay: 0.4s;
 }
