@@ -409,7 +409,6 @@ export default function PatientInfo() {
                       return (
                         <tr key={j}>
                           {Object.keys(data).map((key, k) => {
-                            console.log("data[key] ", data[key]);
                             return <td key={k}>{data[key]}</td>;
                           })}
                         </tr>

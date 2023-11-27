@@ -13,6 +13,8 @@ import { profileActionItem } from "../../constant/profile";
 import { isLoading, storeMyProfile } from "../../redux/action";
 import { successMsg } from "../../utils/snackMsgTrigger";
 import { useNavigate } from "react-router-dom";
+import { useMsal } from "@azure/msal-react";
+import { matrixPath } from "../../routes/routePath";
 
 const Profile = () => {
   const myProfileData = useSelector((state) => state.myProfile);
@@ -28,15 +30,20 @@ const Profile = () => {
     setAnchorElUser(event.currentTarget);
   };
 
+  const { instance } = useMsal();
+  const activeAccount = instance.getActiveAccount();
+
   const logOut = (replaceRoute) => {
     dispatch(isLoading(true));
-    setTimeout(() => {
-      dispatch(isLoading(false));
-      dispatch(storeMyProfile({}));
-      dispatch(successMsg("sucessfully Logout"));
-      navigate(replaceRoute);
-      localStorage.setItem("loginValue", JSON.stringify({}));
-    }, 2000);
+    // setTimeout(() => {
+    //   dispatch(isLoading(false));
+    //   // dispatch(storeMyProfile({}));
+    //   // dispatch(successMsg("sucessfully Logout"));
+    //   // navigate(replaceRoute);
+    //   // localStorage.setItem("loginValue", JSON.stringify({}));
+
+    // }, 2000);
+    instance.logout();
   };
 
   return (
@@ -44,7 +51,7 @@ const Profile = () => {
       <Tooltip title="Open Profile Menu">
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
           <StyledProfileAvatar>
-            {myProfileData?.name?.slice(0, 1)}
+            {activeAccount.name?.slice(0, 1)}
           </StyledProfileAvatar>
         </IconButton>
       </Tooltip>
@@ -66,7 +73,7 @@ const Profile = () => {
       >
         <StyledProfileItem>
           <StyledProfileAvatar from={"menuItem"}>
-            {myProfileData?.name?.slice(0, 1)}
+            {activeAccount.name?.slice(0, 1)}
           </StyledProfileAvatar>
           <Box>
             <div
@@ -78,7 +85,7 @@ const Profile = () => {
                 letterSpacing: "1px",
               }}
             >
-              {myProfileData.name}
+              {activeAccount?.name}
             </div>
             <div
               style={{
@@ -103,14 +110,15 @@ const Profile = () => {
             <StyledListIcon
               sx={{
                 minWidth: 0,
-                mr: open ? 3 : "auto",
+                // mr: open ? 3 : "auto",
                 justifyContent: "center",
                 color: "#000",
               }}
+              className="item-icon"
             >
               {item?.icon && React.createElement(item.icon)}
             </StyledListIcon>
-            <StyledListText primary={item.label} sx={{ color: "#1E1E1E" }} />
+            <StyledListText className="item-text" primary={item.label} />
           </CustomMenuItem>
         ))}
       </CustomMenu>

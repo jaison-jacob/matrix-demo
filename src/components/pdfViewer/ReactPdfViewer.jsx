@@ -16,7 +16,6 @@ const ReactPdfViewer = (props) => {
   };
 
   const onDocumentLoadSuccess = ({ numPages }) => {
-    console.log("on Docu,ent call");
     setNumPages(numPages);
   };
   return (

@@ -11,6 +11,7 @@ import Claim from "../pages/Claim";
 import PatientInfo from "../pages/PatientInfo";
 import CodingForm from "../pages/CodingForm";
 import Onboard from "../pages/Onboard";
+import Chat from "../pages/Chat";
 
 const OnboardFormLazy = lazy(() => import("../pages/ClaimForm"));
 
@@ -68,6 +69,11 @@ export const matrixRoutes = [
   {
     path: matrixPath.ONBOARD_FORM,
     Component: Onboard,
+    exact: true,
+  },
+  {
+    path: matrixPath.CHAT,
+    Component: Chat,
     exact: true,
   },
 ];

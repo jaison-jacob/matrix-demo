@@ -151,14 +151,9 @@ const OnboardForm = () => {
                 constructData[key] = jsonData[index][innerIndex] ?? "";
               });
               constructData.id = index;
-              //   console.log(constructData, "constructData");
               boddyCells.push(constructData);
             }
           });
-
-          //   console.log("boddyCells ", boddyCells);
-
-          // serviceAndReason.value = jsonData;
           setChargeFileTable({
             headCells: [...headCells],
             boddyCells: [...boddyCells],

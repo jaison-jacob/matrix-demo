@@ -6,6 +6,7 @@ export const initialState = {
     messageStatus: false,
   },
   myProfile: {},
+  roleIds: ["pat1", "cod1"],
   defaultLoginData: [
     {
       userName: "Jaison",

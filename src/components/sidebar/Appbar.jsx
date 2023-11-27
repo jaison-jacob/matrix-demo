@@ -10,7 +10,6 @@ import { Box } from "@mui/material";
 
 const Appbar = (props) => {
   const { open, setOpen, pageName, theme } = props;
-  console.log("theme ", theme);
 
   
   return (

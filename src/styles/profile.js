@@ -56,6 +56,12 @@ const StyledListIcon = styled(ListItemIcon, {
   ".MuiSvgIcon-root": {
     fontSize: "20px",
   },
+  "&.item-icon": {
+    minWidth: 0,
+    // mr: open ? 3 : "auto",
+    justifyContent: "center",
+    color: "#000",
+  },
 }));
 
 const StyledListText = styled(ListItemText, {
@@ -68,6 +74,9 @@ const StyledListText = styled(ListItemText, {
     letterSpacing: "1px",
     fontWeight: "100",
     textTransform: "Capitalize",
+  },
+  "&.item-text": {
+    color: "#1E1E1E",
   },
 }));
 

@@ -39,7 +39,7 @@ const AppBar = styled(MuiAppBar, {
 export default function Layout() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
-  const myProfileData = useSelector((state) => state.myProfile);
+  const roleIds = useSelector((state) => state.roleIds);
   const [sidebarActionData, setSidebarActionData] = React.useState({
     availableSidebarData: [],
     selectedPage: {},
@@ -47,9 +47,16 @@ export default function Layout() {
   const location = useLocation();
 
   React.useEffect(() => {
-    const currentSidebarData = sideBarData.filter((item) =>
-      item.menuId.includes(myProfileData.roleId)
-    );
+    const currentSidebarData = sideBarData.filter((item) => {
+      let data = null;
+      item.menuId.forEach((item) => {
+        if (roleIds.includes(item)) {
+          data = item;
+          return;
+        }
+      });
+      return data != null;
+    });
 
     const selectedPage = currentSidebarData.filter((item) => {
       return location.pathname.includes(item.routeKey);

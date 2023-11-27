@@ -2,6 +2,7 @@ import AddToQueueIcon from "@mui/icons-material/AddToQueue";
 import FactCheckOutlinedIcon from "@mui/icons-material/FactCheckOutlined";
 import NewspaperOutlinedIcon from "@mui/icons-material/NewspaperOutlined";
 import CottageOutlinedIcon from "@mui/icons-material/CottageOutlined";
+import QuizIcon from "@mui/icons-material/Quiz";
 import { matrixPath } from "../routes/routePath";
 
 const sideBarData = [
@@ -36,6 +37,14 @@ const sideBarData = [
     routeKey: "onboardForm",
     menuId: ["cod1", "pat1"],
     pageName: "On Board From",
+  },
+  {
+    label: "Chat",
+    icon: QuizIcon,
+    routePath: matrixPath.CHAT,
+    routeKey: "chat",
+    menuId: ["cod1", "pat1"],
+    pageName: "Chat Box",
   },
 ];
 

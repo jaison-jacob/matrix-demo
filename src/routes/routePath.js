@@ -15,4 +15,5 @@ export const matrixPath = {
   FORM: "/837p-form",
   CODING: "/coding-validation",
   CLAIM: "/claim-denial",
+  CHAT:"/chat"
 };

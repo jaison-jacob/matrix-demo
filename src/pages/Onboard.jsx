@@ -84,6 +84,8 @@ const OnBoardForm = () => {
   const [tabValue, setTabValue] = useState("one");
   const [showChatBox, setShowChatBox] = useState(false);
 
+  const [uploadFile, setUploadFile] = useState("");
+
   const handleTabChange = (event, newvalue) => {
     setTabValue(newvalue);
   };
@@ -124,19 +126,21 @@ const OnBoardForm = () => {
                     // disabled={isViewMode}
                     // errors={errors}
                     // touched={touched}
-                    // value={values.chargeFile}
-                    // onChange={(e) => {
-                    //   setFieldValue("chargeFile", e.target.files[0]);
-                    //   hanlePreviewClick();
-                    // }}
+                    value={uploadFile}
+                    onChange={(e) => {
+                      // setFieldValue("chargeFile", e.target.files[0]);
+                      setUploadFile(e.target.files[0]);
+                      // hanlePreviewClick();
+                    }}
                   />
                 </Grid>
-                <Grid item xs={4}>
+                {/* <Grid item xs={4}>
                   <Button onClick={() => setShowChatBox(true)}>Click</Button>
-                </Grid>
-                <StyledChatBoxContainer className={showChatBox && "show"}>
+                </Grid> */}
+                <ChatBox setShowChatBox={setShowChatBox} />
+                {/* <StyledChatBoxContainer className={showChatBox && "show"}>
                   <ChatBox setShowChatBox={setShowChatBox} />
-                </StyledChatBoxContainer>
+                </StyledChatBoxContainer> */}
               </Grid>
             </Box>
           </Paper>

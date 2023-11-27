@@ -1,5 +1,5 @@
 import { Box } from "@mui/system";
-import react, { useState } from "react";
+import react, { useEffect, useState } from "react";
 import styled from "styled-components";
 import SendIcon from "@mui/icons-material/Send";
 import QuizIcon from "@mui/icons-material/Quiz";
@@ -7,6 +7,11 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import SmartToyIcon from "@mui/icons-material/SmartToy";
 import { IconButton } from "@mui/material";
 import BouncingDotsLoader from "./BouncingDotsLoader";
+import { useMsal } from "@azure/msal-react";
+import { postApiServices } from "../../api/api";
+import { apiRoutes } from "../../api/apiPath";
+import { v4 as uuidv4 } from "uuid";
+import Markdown from "react-markdown";
 
 export const StyledChatBox = styled(Box)(({ theme, props }) => {
   return {
@@ -50,6 +55,7 @@ export const StyledChatBox = styled(Box)(({ theme, props }) => {
         color: "#47507A",
         marginLeft: "10px",
         columnGap: "5px",
+        // width: "100%",
       },
       ".bot,.question": {
         fontSize: "11px",
@@ -104,38 +110,76 @@ export const StyledChatBox = styled(Box)(({ theme, props }) => {
 });
 
 const ChatBox = ({ setShowChatBox }) => {
-  const [chats, setChats] = useState([
-    {
-      from: "bot",
-      value: "How are you?",
-      isLoading: false,
-    },
-    {
-      from: "user",
-      value: "I am fine",
-      isLoading: false,
-    },
-  ]);
-
+  const [chats, setChats] = useState([]);
+  const { instance } = useMsal();
+  const activeAccount = instance.getActiveAccount();
   const [question, setQuestion] = useState("");
 
+  const createPayload = (message) => {
+    return {
+      temperature: "0",
+      question: message,
+      chatId: uuidv4(),
+    };
+  };
+
   const handleSend = () => {
-    setQuestion("");
     let copyChats = [...chats];
-    copyChats.push(
-      { from: "bot", value: question, isLoading: false },
-      { from: "user", value: "I am Fine", isLoading: true }
-    );
+
+    let botChat = {
+      chatId: uuidv4(),
+      from: "bot",
+      value: question,
+      isLoading: false,
+    };
+    copyChats.push(botChat);
+    let userChat = {
+      chatId: uuidv4(),
+      from: "user",
+      value: "",
+      isLoading: true,
+    };
+    copyChats.push(userChat);
+
     setChats(copyChats);
-    setTimeout(() => {
-      copyChats[copyChats.length - 1] = {
-        from: "user",
-        value: "I am Fine",
+    const payload = createPayload(question);
+    const params = new URLSearchParams({
+      index: "alp-contracts",
+      model_id: "openai_pinecone",
+    });
+    postApiServices(`${apiRoutes.GET_CHAT_ANSWER}${params.toString()}`, payload)
+      .then((res) => {
+        userChat = {
+          chatId: uuidv4(),
+          from: "user",
+          value: res.data,
+          isLoading: false,
+        };
+        console.log("eerrr ", res.data);
+        copyChats[copyChats.length - 1] = { ...userChat };
+        setChats([...copyChats]);
+        localStorage.setItem("chats", JSON.stringify(copyChats));
+      })
+      .catch((err) => console.log("weewwuiyeiuf ", err));
+  };
+
+  useEffect(() => {
+    const allChats = JSON.parse(localStorage.getItem("chats"));
+    if (allChats) {
+      setChats([...allChats]);
+    } else {
+      let defaultMsg = {
+        chatId: uuidv4(),
+        from: "bot",
+        value:
+          "Hi, I am Contract AI!, your personal assistant. I can help you with your queries. Ask me anything!",
         isLoading: false,
       };
-      setChats([...copyChats]);
-    }, 3000);
-  };
+      let copyChats = [...chats];
+      copyChats.push(defaultMsg);
+      localStorage.setItem("chats", JSON.stringify(copyChats));
+    }
+  }, []);
 
   return (
     <StyledChatBox>
@@ -158,7 +202,9 @@ const ChatBox = ({ setShowChatBox }) => {
                 key={index}
               >
                 <SmartToyIcon />
-                <div className="bot">{item.value}</div>{" "}
+                <div className="bot">
+                  <Markdown>{item.value}</Markdown>
+                </div>{" "}
               </div>
             );
           } else {
@@ -168,7 +214,11 @@ const ChatBox = ({ setShowChatBox }) => {
                 key={index}
               >
                 <div className="question">
-                  {item.isLoading ? <BouncingDotsLoader /> : item.value}
+                  {item.isLoading ? (
+                    <BouncingDotsLoader />
+                  ) : (
+                    <Markdown>{item.value}</Markdown>
+                  )}
                 </div>
               </div>
             );

@@ -103,7 +103,6 @@ function OnboardForm() {
   };
 
   const toggleDrawer = (anchor, open) => (event) => {
-    debugger;
     if (
       event &&
       event.type === "keydown" &&

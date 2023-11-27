@@ -13,6 +13,14 @@ import { errorMsg, successMsg } from "../utils/snackMsgTrigger";
 import { isLoading, storeMyProfile } from "../redux/action";
 import { useNavigate } from "react-router-dom";
 import { matrixPath } from "../routes/routePath";
+import {
+  AuthenticatedTemplate,
+  UnauthenticatedTemplate,
+  useMsal,
+  MsalProvider,
+} from "@azure/msal-react";
+import { loginRequest } from "../auth-config";
+import { useEffect } from "react";
 
 export const LoginHeader = styled("div")(() => ({
   color: "#757575 !important",
@@ -33,6 +41,8 @@ export const LoginImg = styled(Box)(() => ({
   backgroundPosition: "center",
   overflow: "hidden",
   borderRadius: "16px 0px 0px 16px ",
+  position: "absolute",
+  top: "0",
 }));
 
 export const roleData = [
@@ -61,44 +71,64 @@ const LogIn = () => {
     setValues,
   } = formik;
 
-  const userLogin = () => {
-    let logInErr = false;
-    defaultLoginData.forEach((item, index) => {
-      if (item.role === values.role) {
-        if (
-          item.userName === values.userName &&
-          item.password === values.password
-        ) {
-          logInErr = true;
+  // const userLogin = () => {
+  //   let logInErr = false;
+  //   defaultLoginData.forEach((item, index) => {
+  //     if (item.role === values.role) {
+  //       if (
+  //         item.userName === values.userName &&
+  //         item.password === values.password
+  //       ) {
+  //         logInErr = true;
 
-          const profileDate = {
-            name: values.userName,
-            role: roleData.find((item) => item.id === values.role)?.name,
-            roleId: values.role,
-          };
+  //         const profileDate = {
+  //           name: values.userName,
+  //           role: roleData.find((item) => item.id === values.role)?.name,
+  //           roleId: values.role,
+  //         };
 
-          dispatch(isLoading(true));
-          setTimeout(() => {
-            dispatch(isLoading(false));
-            dispatch(storeMyProfile(profileDate));
-            dispatch(successMsg("sucessfully login"));
-            navigate(matrixPath.VISIT);
-            localStorage.setItem("loginValue", JSON.stringify(profileDate));
-          }, 2000);
-        }
-      }
-    });
-    if (!logInErr) dispatch(errorMsg("Please check your credential"));
+  //         dispatch(isLoading(true));
+  //         setTimeout(() => {
+  //           dispatch(isLoading(false));
+  //           dispatch(storeMyProfile(profileDate));
+  //           dispatch(successMsg("sucessfully login"));
+  //           navigate(matrixPath.VISIT);
+  //           localStorage.setItem("loginValue", JSON.stringify(profileDate));
+  //         }, 2000);
+  //       }
+  //     }
+  //   });
+  //   if (!logInErr) dispatch(errorMsg("Please check your credential"));
+  // };
+
+  const { instance } = useMsal();
+  const activeAccount = instance.getActiveAccount();
+  const naviagate = useNavigate();
+
+  const handleRedirect = () => {
+    instance
+      .loginRedirect({
+        ...loginRequest,
+        prompt: "create",
+      })
+      .catch((error) => {
+        naviagate(matrixPath.LOGIN);
+      });
   };
-
+  useEffect(() => {
+    if (activeAccount != null) {
+      naviagate(matrixPath.VISIT);
+    }
+  }, []);
   return (
     <Box
-      //   sx={{ margin: 0, background: "linear-gradient(45deg, #57BADF, #E539F7)" }}
-      padding={5}
-      // sx={{ backgroundColor: "#4F6795" }}
+    //   sx={{ margin: 0, background: "linear-gradient(45deg, #57BADF, #E539F7)" }}
+    // padding={5}
+    // sx={{ backgroundColor: "#4F6795" }}
     >
       <Grid
-        sx={{ height: "calc(100vh - 100px)" }}
+        // sx={{ height: "calc(100vh - 100px)" }}
+        sx={{ height: "100vh" }}
         container
         style={{
           backgroundImage: ` url('/latest-login.png')`,
@@ -107,23 +137,26 @@ const LogIn = () => {
           backgroundPosition: "center",
           overflow: "hidden",
           borderRadius: "16px",
+          position: "absolute",
+          display: "flex",
+          justifyContent: "end",
+          alignItems: "center",
         }}
       >
-        <Grid item xs={8} sx={{ height: "100%" }}>
-          {/* <LoginImg /> */}
-        </Grid>
         <Grid
           item
           xs={4}
           sx={{
             // background:
             //   "linear-gradient(209deg, rgb(212 212 255) 50%, rgba(255,255,255,1) 50%)",
-            backgroundColor: "#FFFF",
+            // backgroundColor: "#F6EB9C",
             padding: "30px 50px",
-            borderRadius: "0 16px 16px 0",
+            borderRadius: "12px",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
+            height: "300px",
+            marginRight: "30px",
           }}
         >
           <Box
@@ -142,7 +175,7 @@ const LogIn = () => {
           {/* <Box
             sx={{
               fontFamily: "Poppins",
-              fontSize: "22px",
+              fontSize: "16px",
               // textAlign: "center",
               fontWeight: "600",
               letterSpacing: "1px",
@@ -153,7 +186,7 @@ const LogIn = () => {
             Login
           </Box> */}
 
-          <CustomTextField
+          {/* <CustomTextField
             label={"UserName*"}
             name={"userName"}
             variant="outlined"
@@ -194,7 +227,7 @@ const LogIn = () => {
             onBlur={handleBlur}
             errors={errors}
             touched={touched}
-          />
+          /> */}
           <SubmitButton
             type="submit"
             variant="contained"
@@ -203,11 +236,14 @@ const LogIn = () => {
               padding: "25px",
               marginTop: "30px",
               backgroundColor: "#0B7D8C !important",
-              fontFamily: "Poppins",
+              fontFamily: "Poppins !important",
               fontSize: "16px",
-              letterSpacing: "1px",
+              letterSpacing: "1.5px",
+              borderRadius: "10px",
+              fontWeight: 600,
+              backgroundColor: "#098695!important",
             }}
-            onClick={handleSubmit}
+            onClick={handleRedirect}
           >
             Login
           </SubmitButton>
